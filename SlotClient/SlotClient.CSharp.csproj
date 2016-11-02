@@ -71,9 +71,15 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Client\ApplicationMgr.cs" />
     <Compile Include="Assets\Scripts\Client\Audio\AudioMgr.cs" />
+    <Compile Include="Assets\Scripts\Client\Model\ModelMgr.cs" />
     <Compile Include="Assets\Scripts\Client\StrDef.cs" />
+    <Compile Include="Assets\Scripts\Client\UI\MainMenu\MainMenuController.cs" />
     <Compile Include="Assets\Scripts\Client\UI\UIMgr.cs" />
+    <Compile Include="Assets\Scripts\Foundation\Controller.cs" />
+    <Compile Include="Assets\Scripts\Foundation\Resource\AssetLoadMgr.cs" />
+    <Compile Include="Assets\Scripts\Foundation\Singleton.cs" />
     <Compile Include="Assets\Scripts\Foundation\SingletonWithComponent.cs" />
+    <Compile Include="Assets\Scripts\Foundation\Utils\FileUtils.cs" />
     <Compile Include="Assets\Test\Test.cs" />
     <Compile Include="Assets\Test\Test1.cs" />
     <Compile Include="Assets\Test\Test_SingletonWithComponent.cs" />

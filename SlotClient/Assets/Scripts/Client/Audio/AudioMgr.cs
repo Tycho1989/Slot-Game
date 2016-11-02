@@ -1,14 +1,14 @@
-﻿/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
-* 文件名：AudioMgr.cs
-* 版权所有(C)：
+﻿/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+* 文 件 名：AudioMgr.cs
+* 版权所有：	
 * 文件编号：
-* 创建人：Tycho
-* 创建日期：2016-11-2
-* 最后修改人：
-* 最后修改日期：
-* 描述：业务逻辑类
-* 版本号：1.0
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+* 创 建 人：Tycho
+* 创建日期：2016-11-1
+* 修 改 人：
+* 修改日期：
+* 描	述：业务逻辑类
+* 版 本 号：1.0
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 
 using UnityEngine;
@@ -37,7 +37,15 @@ public class AudioMgr : SingletonWithComponent<AudioMgr>
 	}
 
 	/// <summary>
-	/// 结束
+	/// 清理（多次）
+	/// </summary>
+	protected override void Clear()
+	{
+
+	}
+
+	/// <summary>
+	/// 结束（一次）
 	/// </summary>
 	protected override void Finish()
 	{

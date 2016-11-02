@@ -1,14 +1,14 @@
-﻿/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
-* 文件名：StrDef.cs
-* 版权所有(C)：
+﻿/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+* 文 件 名：StrDef.cs
+* 版权所有：	
 * 文件编号：
-* 创建人：Tycho
-* 创建日期：2016-11-2
-* 最后修改人：
-* 最后修改日期：
-* 描述：业务逻辑类
-* 版本号：1.0
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+* 创 建 人：Tycho
+* 创建日期：2016-11-1
+* 修 改 人：
+* 修改日期：
+* 描	述：业务逻辑类
+* 版 本 号：1.0
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 
 using System.Collections;
@@ -19,6 +19,7 @@ using System.Collections;
 /// </summary>
 public static class StrDef
 {
-	public const string PRESINGLETON = "_SINGLETON_";
+	public const string PRESINGLETON = "_SINGLETON_";//单例管理器前缀
+	public const string VIEWDIR = "UI";			 //视图资源文件目录
 
 }

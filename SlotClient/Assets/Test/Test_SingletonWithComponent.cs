@@ -21,7 +21,15 @@ public class Test_SingletonWithComponent : SingletonWithComponent<Test_Singleton
 	}
 
 	/// <summary>
-	/// 结束
+	/// 清理（多次）
+	/// </summary>
+	protected override void Clear()
+	{
+
+	}
+
+	/// <summary>
+	/// 结束（一次）
 	/// </summary>
 	protected override void Finish()
 	{
