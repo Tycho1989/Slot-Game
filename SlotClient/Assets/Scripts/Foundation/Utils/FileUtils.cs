@@ -36,8 +36,6 @@ public class FileUtils
 		//	return "file://" + Application.streamingAssetsPath + "/" + relPath;
 		//}
 		return "file://" + Application.streamingAssetsPath + "/" + relPath;
-
-
 	}
 
 	/// <summary>
@@ -53,7 +51,6 @@ public class FileUtils
 			path = string.Format(@"Data/{0}", name);
 			path = GetStreamingWWWFilePath(path);
 			Debug.Log(string.Format(@"移动端上资源沙盒路径:{0}", path));
-
 		}
 		else
 		{
@@ -67,7 +64,6 @@ public class FileUtils
 				path = string.Format(@"file:///{0}/Data/{1}", Application.temporaryCachePath, name);
 				Debug.Log(string.Format(@"PC上资源应用数据路径:{0}", path));
 			}
-
 		}
 
 		return path;

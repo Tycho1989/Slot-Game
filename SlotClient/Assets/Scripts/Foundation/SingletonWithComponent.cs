@@ -48,8 +48,9 @@ public abstract class SingletonWithComponent<T> : MonoBehaviour where T : Compon
 		}
 		else
 		{
-			Debug.LogWarning(string.Format("the singleton {0} has already been existed", typeof(T).Name));
+			Debug.LogError(string.Format("The singleton [{0}] has already been existed", typeof(T).Name));
 			//Destroy(base.gameObject);//销毁后Start()还会执行？？
+			enabled = false;
 			DestroyImmediate(base.gameObject);
 			return;
 		}

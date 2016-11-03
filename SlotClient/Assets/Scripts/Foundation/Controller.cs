@@ -14,8 +14,35 @@
 using UnityEngine;
 using System.Collections;
 
+/// <summary>
+/// 文件名:控制器基类
+/// 说明:
+/// </summary>
 public abstract class Controller
 {
+
+	/// <summary>
+	/// 得到视图层
+	/// </summary>
+	/// <value>The view.</value>
+	protected ViewPresenters View { get; set; }
+
+	/// <summary>
+	/// 得到模型层
+	/// </summary>
+	/// <value>The model.</value>
+	protected Model Model { get; set; }
+
+	/// <summary>
+	///显示标记.
+	/// </summary>
+	private bool active = false;
+
+	/// <summary>
+	/// 加载完标记
+	/// </summary>
+	private bool loaded = false;
+
 	/// <summary>
 	/// 
 	/// </summary>
@@ -23,19 +50,36 @@ public abstract class Controller
 	/// <param name="native">true:the asset is in Resource folder,false:the asset is in other folder </param>
 	protected Controller(string viewName, bool active = false,bool native = false)
 	{
+		this.active = active;
+		this.Model = CreateModel();
+
 		string viewPath = string.Format("{0}/{1}", StrDef.VIEWDIR, viewName);
 		if (native)
 		{
-			AssetLoadMgr.Instance.LoadnNativeAsset<GameObject>(viewPath);
+			GameObject view = AssetLoadMgr.Instance.LoadnNativeAsset<GameObject>(viewPath);
+			if (null != view)
+			{
+				Init(view);
+			}
+			else
+			{
+				Debug.LogError(string.Format("The view [{0}] is not exists", view.name));
+			}
 		}
 		else
 		{
 			ModelMgr.Instance.LoadModel(viewPath, new ModelMgr.ModelCallback((string name, GameObject view, object callbackData)=>
 			{
-				InitView(view);
+				if(null != view)
+				{
+					Init(view);
+				}
+				else
+				{
+					Debug.LogError(string.Format("The view [{0}] is not exists", name));
+				}
 			}));
 		}
-
 	}
 
 	~Controller()
@@ -46,18 +90,50 @@ public abstract class Controller
 	/// <summary>
 	/// 初始化视图
 	/// </summary>
-	private void InitView(GameObject view)
+	private void Init(GameObject view)
+	{
+		this.View = CreateView(view);
+		UIMgr.Instance.SetViewCanvas(view);
+		this.AddListener();
+		this.InitPost();
+		this.loaded = true;
+		this.ShowView(this.active);
+	}
+
+	/// <summary>
+	/// 显示
+	/// </summary>
+	public void ShowView(bool active)
 	{
 
+		this.active = active;
+		if (this.loaded)
+		{
+			View.ShowDialog(this.active);
+		}
 	}
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+	/// <summary>
+	///创建View
+	/// </summary>
+	/// <returns>The view.</returns>
+	protected abstract ViewPresenters CreateView(GameObject go);
+
+	/// <summary>
+	///创建Model
+	/// </summary>
+	/// <returns>The model.</returns>
+	protected abstract Model CreateModel();
+
+	/// <summary>
+	/// Adds the listener.
+	/// </summary>
+	protected abstract void AddListener();
+
+	/// <summary>
+	///更新View,初始化逻辑相关数据
+	/// </summary>
+	protected abstract void InitPost();
+
+
 }

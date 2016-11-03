@@ -20,6 +20,10 @@ using System.Collections;
 public static class StrDef
 {
 	public const string PRESINGLETON = "_SINGLETON_";//单例管理器前缀
-	public const string VIEWDIR = "UI";			 //视图资源文件目录
+	public const string VIEWDIR = "UI";              //视图资源文件目录
+	public const string VIEWCANVAS = "ViewCanvas";   //视图面板
+
+	public const string PATH_VIEWCONFIG = "Config/ViewConfig.ini";
+
 
 }
