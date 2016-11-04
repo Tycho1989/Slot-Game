@@ -21,18 +21,16 @@ using System;
 /// </summary>
 public class ViewPresenters : MonoBehaviour
 {
-	private UIRectTransform viewPanel;
-	public UIRectTransform ViewPanel
-	{
-		get { return viewPanel; }
-		set { viewPanel = value; }
-	}
+	//视图的UI面板
+	public UIRectTransform viewPanel;
 
 	#region Unity3D messages
 	void Awake()
 	{
+		viewPanel = new UIRectTransform();
 		viewPanel.SetUI(this.transform as RectTransform);
 		this.SetViewCanvas(UIMgr.Instance.viewCanvas.transform);
+		this.InitUI();
 		AwakeUnityMsg();
 	}
 
@@ -70,6 +68,9 @@ public class ViewPresenters : MonoBehaviour
 	}
 	#endregion
 
+	protected virtual void InitUI()
+	{
+	}
 	/// <summary>
 	/// 设置视图父节点
 	/// </summary>

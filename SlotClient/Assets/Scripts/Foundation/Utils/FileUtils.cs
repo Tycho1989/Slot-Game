@@ -39,6 +39,30 @@ public class FileUtils
 	}
 
 	/// <summary>
+	/// 得到StreamingAssets目录下的文件全路径,可以通过C#加载
+	/// </summary>
+	public static string GetStreamingCFilePath(string relPath)
+	{
+		return Application.streamingAssetsPath + "/" + relPath;
+	}
+
+	/// <summary>
+	/// 得到Persistent目录下的文件全路径,可以通过C#加载
+	/// </summary>
+	public static string GetPersistentCFilePath(string relPath)
+	{
+		return (Application.persistentDataPath + "/" + relPath);
+	}
+
+	/// <summary>
+	/// 得到Temporary目录下的文件全路径,可以通过C#加载
+	/// </summary>
+	public static string GetTemporaryCFilePath(string relPath)
+	{
+		return Application.temporaryCachePath + "/" + relPath;
+	}
+
+	/// <summary>
 	/// 服务器资源路径
 	/// </summary>
 	/// <param name="name"></param>

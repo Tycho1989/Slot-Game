@@ -42,7 +42,7 @@ public abstract class Controller
 
 	protected int intShowFrame = 0;
 	/// <summary>
-	///显示标记.
+	///显示标记
 	/// </summary>
 	public bool IsOnShow { get; protected set; }
 	public bool IsOnExpand = false;
@@ -66,6 +66,9 @@ public abstract class Controller
 
 	protected List<Controller> lstChildDialog = new List<Controller>();
 
+
+	private DelegateVoid initUIFinishListener = null;
+
 	//窗体点击回调事件
 	public DialogClickEvent dlgClickEvent;
 	protected DelegateVoid dlgOpenListener = null;
@@ -84,6 +87,7 @@ public abstract class Controller
 		{
 			Init(view, viewID, viewInstID, active);
 			this.IsLoaded = true;
+			initUIFinishListener();
 		}
 		/*
 		string viewPath = string.Format("{0}/{1}", StrDef.VIEWDIR, viewName);
@@ -128,9 +132,9 @@ public abstract class Controller
 	{
 		this.Model = CreateModel();
 		this.View = CreateView(view);
+		this.initUIFinishListener += this.AddListener;
 		this.SetViewID(viewID);
 		this.SetViewInstID(viewInstID);
-		this.AddListener();
 		this.InitPost();
 	}
 
@@ -191,7 +195,7 @@ public abstract class Controller
 			IsFocused = true;
 			this.SetActive(true);
 			this.ShowDialog(this.GetViewInstID());
-			this.View.ViewPanel.SetAsLastSibling();
+			this.View.viewPanel.SetAsLastSibling();
 		}
 		if (dlgOpenListener != null)
 		{
@@ -307,7 +311,7 @@ public abstract class Controller
 	/// </summary>
 	public void SetActive(bool active)
 	{
-		this.View.ViewPanel.gameObject.SetActive(active);
+		this.View.viewPanel.gameObject.SetActive(active);
 	}
 
 	#region 鼠标事件
@@ -316,7 +320,7 @@ public abstract class Controller
 		if (IsOnShow && IsFocused && eventinfo.objTarget != null)
 		{
 			Transform transDialog = UIMgr.Instance.GetDialogTransformByUI(eventinfo.objTarget.transform);
-			if (transDialog != null && transDialog == View.ViewPanel.transform)
+			if (transDialog != null && transDialog == View.viewPanel.transform)
 			{
 				if (!IsFocused)
 				{
@@ -336,7 +340,7 @@ public abstract class Controller
 			}
 			else
 			{
-				if (!View.ViewPanel.CheckChild(eventinfo.objTarget))
+				if (!View.viewPanel.CheckChild(eventinfo.objTarget))
 				{
 					CloseDialog();
 				}

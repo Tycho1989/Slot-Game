@@ -508,7 +508,7 @@ public class AppUtility
 			{
 				if (defaultUIMaterial == null)
 				{
-					defaultUIMaterial = AssetLoadMgr.Instance.LoadnNativeAsset<Material>(StrDef.PATH_DEFAULT_UI_Material);
+					defaultUIMaterial = AssetLoadMgr.Instance.LoadNativePrefab<Material>(StrDef.PATH_DEFAULT_UI_Material);
 					defaultUIMaterial.renderQueue = renderQueue;
 				}
 				allRenderer[i].material = defaultUIMaterial;
