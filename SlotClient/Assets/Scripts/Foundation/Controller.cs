@@ -14,6 +14,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Events;
 
 /// <summary>
 /// 文件名:控制器基类
@@ -39,6 +40,7 @@ public abstract class Controller
 	/// </summary>
 	private bool loaded = false;
 
+	protected int intShowFrame = 0;
 	/// <summary>
 	///显示标记.
 	/// </summary>
@@ -66,6 +68,10 @@ public abstract class Controller
 
 	//窗体点击回调事件
 	public DialogClickEvent dlgClickEvent;
+	protected DelegateVoid dlgOpenListener = null;
+	protected DelegateVoid dlgHideListener = null;
+	protected DelegateVoid dlgCloseListener = null;
+
 
 	/// <summary>
 	/// 
@@ -178,22 +184,42 @@ public abstract class Controller
 		MouseEventMgr.Instance.AddMouseEventListener(EMouseEvent.Down, EMouseKey.Left, OnMouseEventHandler);
 		MouseEventMgr.Instance.AddMouseEventListener(EMouseEvent.Down, EMouseKey.Right, OnMouseEventHandler);
 		KeyBoardEventMgr.Instance.AddKeyBoardEventListener(KeyboardEventHandler);
-		//if (!IsOnShow)
-		//{
-		//	m_iShowFrame = Time.frameCount;
-		//	IsOnShow = true;
-		//	IsFocused = true;
-		//	SetActive(true);
-		//	m_uiPanel.SetAsLastSibling();
-		//	UIDialogMgr.Instance.ShowDialog(DialogInstID);
-		//}
-
-
-		this.active = active;
-		if (this.loaded)
+		if (!IsOnShow)
 		{
-			View.ShowDialog(this.active);
+			intShowFrame = Time.frameCount;
+			IsOnShow = true;
+			IsFocused = true;
+			this.SetActive(true);
+			this.OpenDialog(this.GetViewInstID());
+			this.View.ViewPanel.SetAsLastSibling();
 		}
+		if (dlgOpenListener != null)
+		{
+			dlgOpenListener();
+		}
+	}
+
+	public Controller OpenDialog(int viewInstID)
+	{
+		Controller controller = null;
+
+		//如果是已经正在显示，则直接返回
+		if (UIMgr.Instance.viewOnShowDic.TryGetValue(viewInstID, out controller))
+		{
+			return controller;
+		}
+
+		//如果是历史窗口，则直接显示
+		foreach (KeyValuePair<int, Controller> keyvalue in UIMgr.Instance.listAllViews)
+		{
+			if (keyvalue.Key == viewInstID)
+			{
+				controller = keyvalue.Value;
+				controller.ShowDialog();
+				return controller;
+			}
+		}
+		return null;
 	}
 
 	/// <summary>
@@ -218,13 +244,56 @@ public abstract class Controller
 
 			IsOnShow = false;
 			IsFocused = false;
-			SetActive(false);
-			UIDialogMgr.Instance.HideDialog(DialogInstID);
-			if (m_dlgCloseListener != null)
+			this.SetActive(false);
+			this.HideDialog(GetViewInstID());
+			if (dlgCloseListener != null)
 			{
-				m_dlgCloseListener();
+				dlgCloseListener();
 			}
 		}
+	}
+
+	/// <summary>
+	/// 隐藏窗口 将窗口从显示列表中移除  内部接口 业务层不允许调用
+	/// </summary>
+	/// <param name="dlg"></param>
+	public void HideDialog(int dialogInstID)
+	{
+		if (UIMgr.Instance.viewOnShowDic.ContainsKey(dialogInstID))
+		{
+			UIMgr.Instance.viewOnShowDic.Remove(dialogInstID);
+		}
+		//隐藏窗体后设置最后一个显示窗体为聚焦状态
+		Controller dialog = null;
+		foreach (KeyValuePair<int, Controller> keyvalue in UIMgr.Instance.listAllViews)
+		{
+			if (keyvalue.Key == dialogInstID)
+			{
+				dialog = keyvalue.Value;
+				dialog.IsFocused = false;
+			}
+		}
+		for (int i = UIMgr.Instance.listAllViews.Count - 1; i >= 0; i--)
+		{
+			if (UIMgr.Instance.listAllViews[i].Value.IsOnShow)
+			{
+				UIMgr.Instance.listAllViews[i].Value.IsFocused = true;
+				break;
+			}
+		}
+
+		if (dlgHideListener != null)
+		{
+			dlgHideListener();
+		}
+	}
+
+	/// <summary>
+	/// 显示
+	/// </summary>
+	public void SetActive(bool active)
+	{
+		this.View.ViewPanel.gameObject.SetActive(active);
 	}
 
 	#region 鼠标事件

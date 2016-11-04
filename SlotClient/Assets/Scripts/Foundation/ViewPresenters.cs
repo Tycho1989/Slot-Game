@@ -72,33 +72,6 @@ public class ViewPresenters : MonoBehaviour
 	}
 	#endregion
 
-	public T FindUI<T>(string strChildName, bool includeInactive = false) where T : class, IUIType, new()
-	{
-		return viewPanel.FindUI<T>(strChildName);
-	}
-
-	/// <summary>
-	/// 显示
-	/// </summary>
-	public virtual void ShowDialog(bool active)
-	{
-		base.gameObject.SetActive(active);
-		if (active)
-		{
-			if (ViewDidShow != null)
-			{
-				ViewDidShow(this, EventArgs.Empty);
-			}
-		}
-		else
-		{
-			if (ViewDidHide != null)
-			{
-				ViewDidHide(this, EventArgs.Empty);
-			}
-		}
-	}
-
 	/// <summary>
 	/// 设置视图父节点
 	/// </summary>

@@ -18,6 +18,7 @@ public enum EMouseKey
 	Right = 1,
 	Middle = 2,
 }
+
 public enum EMouseEvent
 {
 	None,
@@ -28,6 +29,11 @@ public enum EMouseEvent
 	DoubleClick,    //双击
 	Down,           //鼠标按下
 }
+
+public delegate void DelegateVoid();
+public delegate void DelegateInt(int value);
+public delegate void DelegateString(string value);
+public delegate void DelegateObject(System.Object obj);
 
 
 
