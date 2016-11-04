@@ -21,8 +21,6 @@ using System;
 /// </summary>
 public class ViewPresenters : MonoBehaviour
 {
-
-
 	private UIRectTransform viewPanel;
 	public UIRectTransform ViewPanel
 	{
@@ -34,7 +32,7 @@ public class ViewPresenters : MonoBehaviour
 	void Awake()
 	{
 		viewPanel.SetUI(this.transform as RectTransform);
-		this.SetViewCanvas(UIMgr.Instance.viewCanvas);
+		this.SetViewCanvas(UIMgr.Instance.viewCanvas.transform);
 		AwakeUnityMsg();
 	}
 
@@ -75,19 +73,16 @@ public class ViewPresenters : MonoBehaviour
 	/// <summary>
 	/// 设置视图父节点
 	/// </summary>
-	private void SetViewCanvas(GameObject viewCanvas)
+	private void SetViewCanvas(Transform viewCanvas)
 	{
 		if (viewCanvas != null)
 		{
-			viewPanel.transform.SetParent(viewCanvas.transform, false);
+			viewPanel.transform.SetParent(viewCanvas, false);
 		}
 		else
 		{
 			Debug.LogError(string.Format("The [ViewCanvas] is not exist"));
 		}
 	}
-
-
-
 
 }

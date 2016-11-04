@@ -38,7 +38,7 @@ public abstract class Controller
 	/// <summary>
 	/// 加载完标记
 	/// </summary>
-	private bool loaded = false;
+	public bool IsLoaded = false;
 
 	protected int intShowFrame = 0;
 	/// <summary>
@@ -78,12 +78,12 @@ public abstract class Controller
 	/// </summary>
 	/// <param name="active">生成view时是否是激活的</param>
 	/// <param name="native">true:the asset is in Resource folder,false:the asset is in other folder </param>
-	protected Controller(GameObject view,bool active = true,bool native = false)
+	protected Controller(GameObject view, EViewID viewID,int viewInstID,bool active = true,bool native = false)
 	{
 		if(null != view)
 		{
-			loaded = true;
-			Init(view, active);
+			Init(view, viewID, viewInstID, active);
+			this.IsLoaded = true;
 		}
 		/*
 		string viewPath = string.Format("{0}/{1}", StrDef.VIEWDIR, viewName);
@@ -124,14 +124,14 @@ public abstract class Controller
 	/// <summary>
 	/// 初始化视图
 	/// </summary>
-	public void Init(GameObject view,bool active)
+	public void Init(GameObject view, EViewID viewID,int viewInstID,bool active)
 	{
 		this.Model = CreateModel();
 		this.View = CreateView(view);
+		this.SetViewID(viewID);
+		this.SetViewInstID(viewInstID);
 		this.AddListener();
 		this.InitPost();
-		this.loaded = true;
-		this.ShowView(active);
 	}
 
 	/// <summary>
@@ -169,7 +169,7 @@ public abstract class Controller
 	/// <summary>
 	/// 显示
 	/// </summary>
-	public void ShowView(bool active)
+	public void OpenView(bool active)
 	{
 		MouseEventMgr.Instance.RemoveMouseEventListener(EMouseEvent.Click, EMouseKey.Left, OnMouseEventHandler);
 		MouseEventMgr.Instance.RemoveMouseEventListener(EMouseEvent.Click, EMouseKey.Right, OnMouseEventHandler);
@@ -190,7 +190,7 @@ public abstract class Controller
 			IsOnShow = true;
 			IsFocused = true;
 			this.SetActive(true);
-			this.OpenDialog(this.GetViewInstID());
+			this.ShowDialog(this.GetViewInstID());
 			this.View.ViewPanel.SetAsLastSibling();
 		}
 		if (dlgOpenListener != null)
@@ -199,27 +199,41 @@ public abstract class Controller
 		}
 	}
 
-	public Controller OpenDialog(int viewInstID)
+	public void ShowDialog(int dialogInstID)
 	{
-		Controller controller = null;
-
-		//如果是已经正在显示，则直接返回
-		if (UIMgr.Instance.viewOnShowDic.TryGetValue(viewInstID, out controller))
+		if (!UIMgr.Instance.dicViewOnShow.ContainsKey(dialogInstID))
 		{
-			return controller;
-		}
-
-		//如果是历史窗口，则直接显示
-		foreach (KeyValuePair<int, Controller> keyvalue in UIMgr.Instance.listAllViews)
-		{
-			if (keyvalue.Key == viewInstID)
+			Controller dialog = null;
+			foreach (KeyValuePair<int, Controller> keyvalue in UIMgr.Instance.listAllViews)
 			{
-				controller = keyvalue.Value;
-				controller.ShowDialog();
-				return controller;
+				if (keyvalue.Key == dialogInstID)
+				{
+					dialog = keyvalue.Value;
+					UIMgr.Instance.dicViewOnShow.Add(dialogInstID, dialog);
+				}
+			}
+			//设置其他窗体非聚焦状态
+			if (dialog != null)
+			{
+				SetOtherDlgUnFocus(dialog);
 			}
 		}
-		return null;
+	}
+
+	/// <summary>
+	/// 设置窗体
+	/// </summary>
+	/// <param name="dialogInstID"></param>
+	public void SetOtherDlgUnFocus(Controller dlgExcept)
+	{
+		foreach (KeyValuePair<int, Controller> keyval in UIMgr.Instance.listAllViews)
+		{
+			Controller dlg = keyval.Value;
+			if (dlg != null && dlg != dlgExcept)
+			{
+				dlg.IsFocused = false;
+			}
+		}
 	}
 
 	/// <summary>
@@ -259,9 +273,9 @@ public abstract class Controller
 	/// <param name="dlg"></param>
 	public void HideDialog(int dialogInstID)
 	{
-		if (UIMgr.Instance.viewOnShowDic.ContainsKey(dialogInstID))
+		if (UIMgr.Instance.dicViewOnShow.ContainsKey(dialogInstID))
 		{
-			UIMgr.Instance.viewOnShowDic.Remove(dialogInstID);
+			UIMgr.Instance.dicViewOnShow.Remove(dialogInstID);
 		}
 		//隐藏窗体后设置最后一个显示窗体为聚焦状态
 		Controller dialog = null;
@@ -322,7 +336,7 @@ public abstract class Controller
 			}
 			else
 			{
-				if (!uiPanel.CheckChild(eventinfo.objTarget))
+				if (!View.ViewPanel.CheckChild(eventinfo.objTarget))
 				{
 					CloseDialog();
 				}

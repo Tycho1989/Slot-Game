@@ -58,14 +58,10 @@ public class AssetLoadMgr : SingletonWithComponent<AssetLoadMgr>
 	/// </summary>
 	/// <param name="path"></param>
 	/// <returns></returns>
-	public T LoadnNativeAsset<T>(string path)
+	public T LoadnNativeAsset<T>(string path) where T: UnityEngine.Object
 	{
-		if (typeof(T) == typeof(GameObject))
-		{
-			GameObject obj = Instantiate(Resources.Load(path, typeof(GameObject))) as GameObject;
-			return (T)Convert.ChangeType(obj, typeof(T));
-		}
-		return default(T);
+		T asset = Instantiate(Resources.Load(path, typeof(T))) as T;
+		return asset;
 	}
 
 	public void LoadAsset(string fullPath, AssetCallback assetCallback, object callbackData)

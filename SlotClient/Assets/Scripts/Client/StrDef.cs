@@ -24,6 +24,7 @@ public static class StrDef
 	public const string VIEWCANVAS = "ViewCanvas";   //视图面板
 
 	public const string PATH_VIEWCONFIG = "Config/ViewConfig.ini";
+	public const string PATH_DEFAULT_UI_Material = "DefaultUIMaterial";
 
 
 }
