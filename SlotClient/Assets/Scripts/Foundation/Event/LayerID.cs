@@ -1,5 +1,5 @@
 ﻿/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-* 文 件 名：Model.cs
+* 文 件 名：LayerID.cs
 * 版权所有：	
 * 文件编号：
 * 创 建 人：Tycho
@@ -15,25 +15,10 @@ using UnityEngine;
 using System.Collections;
 
 /// <summary>
-/// 文件名：模型层基类
+/// 文件名:设置层
 /// 说明:
 /// </summary>
-public abstract class Model
+public static class LayerID
 {
-	private EViewID viewID;
-	public EViewID ViewID
-	{
-		get { return viewID; }
-		set { viewID = value; }
-	}
-
-	protected int viewInstID = 0;
-	public int ViewInstID
-	{
-		get { return viewInstID; }
-		set { viewInstID = value; }
-	}
-
-
-
+	public static int LayerUI = LayerMask.NameToLayer("UI");
 }

@@ -21,25 +21,13 @@ using System;
 /// </summary>
 public class ViewPresenters : MonoBehaviour
 {
+
+
 	private UIRectTransform viewPanel;
 	public UIRectTransform ViewPanel
 	{
 		get { return viewPanel; }
 		set { viewPanel = value; }
-	}
-
-	private EViewID viewID;
-	public EViewID ViewID
-	{
-		get { return viewID; }
-		set { viewID = value; }
-	}
-
-	protected int viewInstID = 0;
-	public int ViewInstID
-	{
-		get { return viewInstID; }
-		set { viewInstID = value; }
 	}
 
 	#region Unity3D messages
@@ -125,5 +113,8 @@ public class ViewPresenters : MonoBehaviour
 			Debug.LogError(string.Format("The [ViewCanvas] is not exist"));
 		}
 	}
+
+
+
 
 }

@@ -13,6 +13,7 @@
 
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 /// <summary>
 /// 文件名:控制器基类
@@ -34,14 +35,37 @@ public abstract class Controller
 	protected Model Model { get; set; }
 
 	/// <summary>
-	///显示标记.
-	/// </summary>
-	private bool active = false;
-
-	/// <summary>
 	/// 加载完标记
 	/// </summary>
 	private bool loaded = false;
+
+	/// <summary>
+	///显示标记.
+	/// </summary>
+	public bool IsOnShow { get; protected set; }
+	public bool IsOnExpand = false;
+	private bool isFocused = false;
+	protected bool isCloseWhenNotClickSelf = false;
+
+	public bool IsFocused
+	{
+		get
+		{
+			return isFocused;
+		}
+		set
+		{
+			if (isFocused != value)
+			{
+				isFocused = value;
+			}
+		}
+	}
+
+	protected List<Controller> lstChildDialog = new List<Controller>();
+
+	//窗体点击回调事件
+	public DialogClickEvent dlgClickEvent;
 
 	/// <summary>
 	/// 
@@ -50,8 +74,11 @@ public abstract class Controller
 	/// <param name="native">true:the asset is in Resource folder,false:the asset is in other folder </param>
 	protected Controller(GameObject view,bool active = true,bool native = false)
 	{
-		this.active = active;
-		Init(view);
+		if(null != view)
+		{
+			loaded = true;
+			Init(view, active);
+		}
 		/*
 		string viewPath = string.Format("{0}/{1}", StrDef.VIEWDIR, viewName);
 		if (native)
@@ -91,15 +118,46 @@ public abstract class Controller
 	/// <summary>
 	/// 初始化视图
 	/// </summary>
-	public void Init(GameObject view)
+	public void Init(GameObject view,bool active)
 	{
 		this.Model = CreateModel();
 		this.View = CreateView(view);
-		UIMgr.Instance.SetViewCanvas(view);
 		this.AddListener();
 		this.InitPost();
 		this.loaded = true;
-		this.ShowView(this.active);
+		this.ShowView(active);
+	}
+
+	/// <summary>
+	/// 获取窗口ID
+	/// </summary>
+	public EViewID GetViewID()
+	{
+		return this.Model.ViewID;
+	}
+
+	/// <summary>
+	/// 设置窗口ID
+	/// </summary>
+	public void SetViewID(EViewID viewID)
+	{
+		this.Model.ViewID = viewID;
+	}
+
+	/// <summary>
+	/// 获取窗口实例ID
+	/// </summary>
+	public int GetViewInstID()
+	{
+		return this.Model.ViewInstID;
+	}
+
+	/// <summary>
+	/// 设置窗口实例ID
+	/// </summary>
+	public void SetViewInstID(int viewInstID)
+	{
+		this.Model.ViewInstID = viewInstID;
 	}
 
 	/// <summary>
@@ -107,6 +165,29 @@ public abstract class Controller
 	/// </summary>
 	public void ShowView(bool active)
 	{
+		MouseEventMgr.Instance.RemoveMouseEventListener(EMouseEvent.Click, EMouseKey.Left, OnMouseEventHandler);
+		MouseEventMgr.Instance.RemoveMouseEventListener(EMouseEvent.Click, EMouseKey.Right, OnMouseEventHandler);
+		MouseEventMgr.Instance.RemoveMouseEventListener(EMouseEvent.DoubleClick, EMouseKey.Left, OnMouseEventHandler);
+		MouseEventMgr.Instance.RemoveMouseEventListener(EMouseEvent.DoubleClick, EMouseKey.Right, OnMouseEventHandler);
+		MouseEventMgr.Instance.RemoveMouseEventListener(EMouseEvent.Down, EMouseKey.Left, OnMouseEventHandler);
+		MouseEventMgr.Instance.RemoveMouseEventListener(EMouseEvent.Down, EMouseKey.Right, OnMouseEventHandler);
+		MouseEventMgr.Instance.AddMouseEventListener(EMouseEvent.Click, EMouseKey.Left, OnMouseEventHandler);
+		MouseEventMgr.Instance.AddMouseEventListener(EMouseEvent.Click, EMouseKey.Right, OnMouseEventHandler);
+		MouseEventMgr.Instance.AddMouseEventListener(EMouseEvent.DoubleClick, EMouseKey.Left, OnMouseEventHandler);
+		MouseEventMgr.Instance.AddMouseEventListener(EMouseEvent.DoubleClick, EMouseKey.Right, OnMouseEventHandler);
+		MouseEventMgr.Instance.AddMouseEventListener(EMouseEvent.Down, EMouseKey.Left, OnMouseEventHandler);
+		MouseEventMgr.Instance.AddMouseEventListener(EMouseEvent.Down, EMouseKey.Right, OnMouseEventHandler);
+		KeyBoardEventMgr.Instance.AddKeyBoardEventListener(KeyboardEventHandler);
+		//if (!IsOnShow)
+		//{
+		//	m_iShowFrame = Time.frameCount;
+		//	IsOnShow = true;
+		//	IsFocused = true;
+		//	SetActive(true);
+		//	m_uiPanel.SetAsLastSibling();
+		//	UIDialogMgr.Instance.ShowDialog(DialogInstID);
+		//}
+
 
 		this.active = active;
 		if (this.loaded)
@@ -115,6 +196,92 @@ public abstract class Controller
 		}
 	}
 
+	/// <summary>
+	/// 关闭窗口 将窗口设为不可见
+	/// </summary>
+	public virtual void CloseDialog()
+	{
+		MouseEventMgr.Instance.RemoveMouseEventListener(EMouseEvent.Click, EMouseKey.Left, OnMouseEventHandler);
+		MouseEventMgr.Instance.RemoveMouseEventListener(EMouseEvent.Click, EMouseKey.Right, OnMouseEventHandler);
+		MouseEventMgr.Instance.RemoveMouseEventListener(EMouseEvent.DoubleClick, EMouseKey.Left, OnMouseEventHandler);
+		MouseEventMgr.Instance.RemoveMouseEventListener(EMouseEvent.DoubleClick, EMouseKey.Right, OnMouseEventHandler);
+		MouseEventMgr.Instance.RemoveMouseEventListener(EMouseEvent.Down, EMouseKey.Left, OnMouseEventHandler);
+		MouseEventMgr.Instance.RemoveMouseEventListener(EMouseEvent.Down, EMouseKey.Right, OnMouseEventHandler);
+		KeyBoardEventMgr.Instance.RemoveKeyBoardEventListener(KeyboardEventHandler);
+		if (IsOnShow)
+		{
+			for (int i = 0; i < lstChildDialog.Count; ++i)
+			{
+				if (lstChildDialog[i] != null)
+					lstChildDialog[i].CloseDialog();
+			}
+
+			IsOnShow = false;
+			IsFocused = false;
+			SetActive(false);
+			UIDialogMgr.Instance.HideDialog(DialogInstID);
+			if (m_dlgCloseListener != null)
+			{
+				m_dlgCloseListener();
+			}
+		}
+	}
+
+	#region 鼠标事件
+	private void OnMouseEventHandler(MouseEventMgr.ResonseInfo eventinfo)
+	{
+		if (IsOnShow && IsFocused && eventinfo.objTarget != null)
+		{
+			Transform transDialog = UIMgr.Instance.GetDialogTransformByUI(eventinfo.objTarget.transform);
+			if (transDialog != null && transDialog == View.ViewPanel.transform)
+			{
+				if (!IsFocused)
+				{
+					IsFocused = true;
+					UIMgr.Instance.SetOtherDlgUnFocus(this);
+				}
+			}
+
+			dlgClickEvent.Invoke();
+		}
+
+		if (isCloseWhenNotClickSelf && IsOnShow && IsFocused)
+		{
+			if (eventinfo.objTarget == null || eventinfo.objTarget.layer != LayerID.LayerUI)
+			{
+				CloseDialog();
+			}
+			else
+			{
+				if (!uiPanel.CheckChild(eventinfo.objTarget))
+				{
+					CloseDialog();
+				}
+			}
+		}
+	}
+
+	#endregion
+
+	#region 键盘事件
+	private void KeyboardEventHandler(KeyBoardEventMgr.ResonseInfo eventinfo)
+	{
+		if (IsOnShow && IsFocused)
+		{
+			OnKeyboardEventHandler(eventinfo);
+		}
+	}
+
+	protected virtual void OnKeyboardEventHandler(KeyBoardEventMgr.ResonseInfo eventinfo)
+	{
+
+	}
+	#endregion
+
+	public class DialogClickEvent : UnityEvent
+	{
+
+	}
 	/// <summary>
 	///创建View
 	/// </summary>
