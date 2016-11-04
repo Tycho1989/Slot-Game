@@ -48,11 +48,11 @@ public abstract class Controller
 	/// </summary>
 	/// <param name="active">生成view时是否是激活的</param>
 	/// <param name="native">true:the asset is in Resource folder,false:the asset is in other folder </param>
-	protected Controller(string viewName, bool active = false,bool native = false)
+	protected Controller(GameObject view,bool active = true,bool native = false)
 	{
 		this.active = active;
-		this.Model = CreateModel();
-
+		Init(view);
+		/*
 		string viewPath = string.Format("{0}/{1}", StrDef.VIEWDIR, viewName);
 		if (native)
 		{
@@ -80,6 +80,7 @@ public abstract class Controller
 				}
 			}));
 		}
+		*/
 	}
 
 	~Controller()
@@ -90,8 +91,9 @@ public abstract class Controller
 	/// <summary>
 	/// 初始化视图
 	/// </summary>
-	private void Init(GameObject view)
+	public void Init(GameObject view)
 	{
+		this.Model = CreateModel();
 		this.View = CreateView(view);
 		UIMgr.Instance.SetViewCanvas(view);
 		this.AddListener();

@@ -65,4 +65,5 @@ public abstract class Singleton<T> where T : Singleton<T>, new()
 	/// 结束（一次）
 	/// </summary>
 	protected abstract void Finish();
+
 }
