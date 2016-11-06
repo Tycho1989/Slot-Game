@@ -369,10 +369,11 @@ public abstract class Controller
 			}
 			else
 			{
-				if (!View.viewPanel.CheckChild(eventinfo.objTarget))
-				{
-					CloseDialog();
-				}
+				//TODO
+				//if (!View.viewPanel.CheckChild(eventinfo.objTarget))
+				//{
+				//	CloseDialog();
+				//}
 			}
 		}
 	}
