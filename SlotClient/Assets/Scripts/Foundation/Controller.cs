@@ -66,7 +66,6 @@ public abstract class Controller
 
 	protected List<Controller> lstChildDialog = new List<Controller>();
 
-
 	private DelegateVoid initUIFinishListener = null;
 
 	//窗体点击回调事件
@@ -85,9 +84,12 @@ public abstract class Controller
 	{
 		if(null != view)
 		{
-			Init(view, viewID, viewInstID, active);
+			InitPre(view, viewID, viewInstID, active);
 			this.IsLoaded = true;
-			initUIFinishListener();
+			if(null != initUIFinishListener)
+			{
+				initUIFinishListener();
+			}
 		}
 		/*
 		string viewPath = string.Format("{0}/{1}", StrDef.VIEWDIR, viewName);
@@ -122,21 +124,48 @@ public abstract class Controller
 
 	~Controller()
 	{
-
+		this.RemoveListener();
 	}
 
 	/// <summary>
-	/// 初始化视图
+	/// 初始化
 	/// </summary>
-	public void Init(GameObject view, EViewID viewID,int viewInstID,bool active)
+	private void InitPre(GameObject view, EViewID viewID,int viewInstID,bool active)
 	{
 		this.Model = CreateModel();
 		this.View = CreateView(view);
 		this.initUIFinishListener += this.AddListener;
+		this.initUIFinishListener += this.InitPost;
 		this.SetViewID(viewID);
 		this.SetViewInstID(viewInstID);
-		this.InitPost();
 	}
+
+	/// <summary>
+	///后初始化
+	/// </summary>
+	protected abstract void InitPost();
+
+	/// <summary>
+	///创建View
+	/// </summary>
+	/// <returns>The view.</returns>
+	protected abstract ViewPresenters CreateView(GameObject go);
+
+	/// <summary>
+	///创建Model
+	/// </summary>
+	/// <returns>The model.</returns>
+	protected abstract Model CreateModel();
+
+	/// <summary>
+	/// 添加监听,只对view中InitUI()里的UI有效
+	/// </summary>
+	protected abstract void AddListener();
+
+	/// <summary>
+	/// 移除监听
+	/// </summary>
+	protected abstract void RemoveListener();
 
 	/// <summary>
 	/// 获取窗口ID
@@ -369,27 +398,5 @@ public abstract class Controller
 	{
 
 	}
-	/// <summary>
-	///创建View
-	/// </summary>
-	/// <returns>The view.</returns>
-	protected abstract ViewPresenters CreateView(GameObject go);
-
-	/// <summary>
-	///创建Model
-	/// </summary>
-	/// <returns>The model.</returns>
-	protected abstract Model CreateModel();
-
-	/// <summary>
-	/// Adds the listener.
-	/// </summary>
-	protected abstract void AddListener();
-
-	/// <summary>
-	///更新View,初始化逻辑相关数据
-	/// </summary>
-	protected abstract void InitPost();
-
 
 }

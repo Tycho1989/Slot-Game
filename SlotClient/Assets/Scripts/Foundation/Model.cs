@@ -34,6 +34,13 @@ public abstract class Model
 		set { viewInstID = value; }
 	}
 
-
+	protected Model()
+	{
+		Init();
+	}
+	/// <summary>
+	/// 初始化
+	/// </summary>
+	protected abstract void Init();
 
 }
