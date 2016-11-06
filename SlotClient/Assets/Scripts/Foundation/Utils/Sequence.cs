@@ -15,7 +15,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace Utils
+namespace Slot.Utils
 { 
 	/// <summary>
 	/// 文件名:工具类

@@ -15,6 +15,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.Events;
+using System;
 
 /// <summary>
 /// 文件名:控制器基类
@@ -80,16 +81,27 @@ public abstract class Controller
 	/// </summary>
 	/// <param name="active">生成view时是否是激活的</param>
 	/// <param name="native">true:the asset is in Resource folder,false:the asset is in other folder </param>
-	protected Controller(GameObject view, EViewID viewID,int viewInstID,bool active = true,bool native = false)
+	protected Controller(EViewID viewID,int viewInstID, GameObject view, bool active = true,bool native = false)
 	{
-		if(null != view)
+		try
 		{
-			InitPre(view, viewID, viewInstID, active);
-			this.IsLoaded = true;
-			if(null != initUIFinishListener)
+			if (null != view)
 			{
-				initUIFinishListener();
+				InitPre(view, viewID, viewInstID, active);
+				this.IsLoaded = true;
+				if (null != initUIFinishListener)
+				{
+					initUIFinishListener();
+				}
 			}
+			else
+			{
+				Debug.LogError(string.Format("Create the View viewID:[{0}] fail.", viewID));
+			}
+		}
+		catch(Exception ex)
+		{
+			Debug.Log(ex);
 		}
 		/*
 		string viewPath = string.Format("{0}/{1}", StrDef.VIEWDIR, viewName);
@@ -134,8 +146,8 @@ public abstract class Controller
 	{
 		this.Model = CreateModel();
 		this.View = CreateView(view);
-		this.initUIFinishListener += this.AddListener;
-		this.initUIFinishListener += this.InitPost;
+		//this.initUIFinishListener += this.AddListener;
+		//this.initUIFinishListener += this.InitPost;
 		this.SetViewID(viewID);
 		this.SetViewInstID(viewInstID);
 	}
@@ -167,6 +179,15 @@ public abstract class Controller
 	/// </summary>
 	protected abstract void RemoveListener();
 
+
+	/// <summary>
+	/// 更新
+	/// </summary>
+	/// <param name="fTime">F time.</param>
+	public virtual void Update(float fTime)
+	{
+
+	}
 	/// <summary>
 	/// 获取窗口ID
 	/// </summary>

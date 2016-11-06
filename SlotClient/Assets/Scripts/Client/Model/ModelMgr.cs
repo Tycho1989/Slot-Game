@@ -15,7 +15,7 @@ using UnityEngine;
 using System.Collections;
 using System;
 using System.Collections.Generic;
-using Utils;
+using Slot.Utils;
 
 /// <summary>
 /// 文件名:模型管理器
