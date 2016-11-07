@@ -67,7 +67,7 @@ public abstract class Controller
 
 	protected List<Controller> lstChildDialog = new List<Controller>();
 
-	private DelegateVoid initUIFinishListener = null;
+	public DelegateVoid initUIFinishListener = null;
 
 	//窗体点击回调事件
 	public DialogClickEvent dlgClickEvent;
@@ -81,17 +81,13 @@ public abstract class Controller
 	/// </summary>
 	/// <param name="active">生成view时是否是激活的</param>
 	/// <param name="native">true:the asset is in Resource folder,false:the asset is in other folder </param>
-	protected Controller(EViewID viewID,int viewInstID, GameObject view, bool active = true,bool native = false)
+	protected Controller(EViewID viewID, int viewInstID, GameObject view, bool active = true, bool native = false)
 	{
 		try
 		{
 			if (null != view)
 			{
-				InitPre(view, viewID, viewInstID, active);
-				if (null != initUIFinishListener)
-				{
-					initUIFinishListener();
-				}
+				this.InitPre(viewID, viewInstID, view);
 				this.IsLoaded = true;
 			}
 			else
@@ -99,7 +95,7 @@ public abstract class Controller
 				Debug.LogError(string.Format("Create the View viewID:[{0}] fail.", viewID));
 			}
 		}
-		catch(Exception ex)
+		catch (Exception ex)
 		{
 			Debug.Log(ex);
 		}
@@ -137,7 +133,7 @@ public abstract class Controller
 	/// <summary>
 	/// 初始化
 	/// </summary>
-	private void InitPre(GameObject view, EViewID viewID,int viewInstID,bool active)
+	private void InitPre(EViewID viewID,int viewInstID, GameObject view)
 	{
 		this.Model = CreateModel();
 		this.View = CreateView(view);

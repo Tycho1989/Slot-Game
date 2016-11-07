@@ -97,9 +97,12 @@
     <Compile Include="Assets\Scripts\Client\UI\MainMenu\MainMenuController.cs" />
     <Compile Include="Assets\Scripts\Client\UI\MainMenu\MainMenuModel.cs" />
     <Compile Include="Assets\Scripts\Client\UI\MainMenu\MainMenuViewPresenters.cs" />
-    <Compile Include="Assets\Scripts\Client\UI\PlayLine\PlayLineController.cs" />
-    <Compile Include="Assets\Scripts\Client\UI\PlayLine\PlayLineModel.cs" />
-    <Compile Include="Assets\Scripts\Client\UI\PlayLine\PlayLineViewPresenters.cs" />
+    <Compile Include="Assets\Scripts\Client\UI\PayLine\PayLineController.cs" />
+    <Compile Include="Assets\Scripts\Client\UI\PayLine\PayLineModel.cs" />
+    <Compile Include="Assets\Scripts\Client\UI\PayLine\PayLineViewPresenters.cs" />
+    <Compile Include="Assets\Scripts\Client\UI\Symbol\SymbolController.cs" />
+    <Compile Include="Assets\Scripts\Client\UI\Symbol\SymbolModel.cs" />
+    <Compile Include="Assets\Scripts\Client\UI\Symbol\SymbolViewPresenters.cs" />
     <Compile Include="Assets\Scripts\Client\UI\Template\TemplateController.cs" />
     <Compile Include="Assets\Scripts\Client\UI\Template\TemplateModel.cs" />
     <Compile Include="Assets\Scripts\Client\UI\Template\TemplateViewPresenters.cs" />
