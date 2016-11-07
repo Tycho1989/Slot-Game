@@ -33,7 +33,6 @@ public class ViewPresenters : MonoBehaviour
 		viewPanel = gameObject.transform as RectTransform;
 		viewPanel.transform.SetParentObjExt(UIMgr.Instance.viewCanvas.gameObject);
 		InitUI();
-
 		AwakeUnityMsg();
 	}
 

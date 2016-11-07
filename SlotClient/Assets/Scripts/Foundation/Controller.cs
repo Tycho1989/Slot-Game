@@ -67,7 +67,7 @@ public abstract class Controller
 
 	protected List<Controller> lstChildDialog = new List<Controller>();
 
-	public DelegateVoid initUIFinishListener = null;
+	public DelegateVoid createViewFinishListener = null;
 
 	//窗体点击回调事件
 	public DialogClickEvent dlgClickEvent;
@@ -137,7 +137,7 @@ public abstract class Controller
 	{
 		this.Model = CreateModel();
 		this.View = CreateView(view);
-		this.initUIFinishListener += this.InitPost;
+		this.createViewFinishListener += this.InitPost;
 		this.dlgOpenListener += this.AddListener;
 		this.dlgCloseListener += this.RemoveListener;
 		this.SetViewID(viewID);
