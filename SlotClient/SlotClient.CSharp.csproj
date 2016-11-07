@@ -58,6 +58,12 @@
     <Reference Include="UnityEngine.Networking">
       <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEngine.Networking">
+      <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
     </Reference>
@@ -70,14 +76,14 @@
     <Reference Include="DOTween">
       <HintPath>Assets\Demigiant\DOTween\DOTween.dll</HintPath>
     </Reference>
+    <Reference Include="DOTween43">
+      <HintPath>Assets\Demigiant\DOTween\DOTween43.dll</HintPath>
+    </Reference>
     <Reference Include="DOTween46">
       <HintPath>Assets\Demigiant\DOTween\DOTween46.dll</HintPath>
     </Reference>
     <Reference Include="DOTween50">
       <HintPath>Assets\Demigiant\DOTween\DOTween50.dll</HintPath>
-    </Reference>
-    <Reference Include="DOTween43">
-      <HintPath>Assets\Demigiant\DOTween\DOTween43.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -94,6 +100,9 @@
     <Compile Include="Assets\Scripts\Client\UI\PlayLine\PlayLineController.cs" />
     <Compile Include="Assets\Scripts\Client\UI\PlayLine\PlayLineModel.cs" />
     <Compile Include="Assets\Scripts\Client\UI\PlayLine\PlayLineViewPresenters.cs" />
+    <Compile Include="Assets\Scripts\Client\UI\Template\TemplateController.cs" />
+    <Compile Include="Assets\Scripts\Client\UI\Template\TemplateModel.cs" />
+    <Compile Include="Assets\Scripts\Client\UI\Template\TemplateViewPresenters.cs" />
     <Compile Include="Assets\Scripts\Foundation\Controller.cs" />
     <Compile Include="Assets\Scripts\Foundation\Event\InputEventDef.cs" />
     <Compile Include="Assets\Scripts\Foundation\Event\KeyBoardEventMgr.cs" />
