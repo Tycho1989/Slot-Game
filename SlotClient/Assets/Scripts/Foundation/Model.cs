@@ -36,7 +36,7 @@ public abstract class Model
 
 	protected Model()
 	{
-		Init();
+		//Init();
 	}
 	/// <summary>
 	/// 初始化

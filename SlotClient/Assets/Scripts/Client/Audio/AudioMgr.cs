@@ -1,4 +1,5 @@
-﻿/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+﻿/* * * * * *Copyright (c) 2007, kilo <kilo.sw@gmail.com>. All rights reserved.
+* * * * * * * * * * *
 * 文 件 名：AudioMgr.cs
 * 版权所有：	
 * 文件编号：
