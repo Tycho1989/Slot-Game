@@ -88,11 +88,11 @@ public abstract class Controller
 			if (null != view)
 			{
 				InitPre(view, viewID, viewInstID, active);
-				this.IsLoaded = true;
 				if (null != initUIFinishListener)
 				{
 					initUIFinishListener();
 				}
+				this.IsLoaded = true;
 			}
 			else
 			{
@@ -134,11 +134,6 @@ public abstract class Controller
 		*/
 	}
 
-	~Controller()
-	{
-		this.RemoveListener();
-	}
-
 	/// <summary>
 	/// 初始化
 	/// </summary>
@@ -146,8 +141,9 @@ public abstract class Controller
 	{
 		this.Model = CreateModel();
 		this.View = CreateView(view);
-		//this.initUIFinishListener += this.AddListener;
-		//this.initUIFinishListener += this.InitPost;
+		this.initUIFinishListener += this.InitPost;
+		this.dlgOpenListener += this.AddListener;
+		this.dlgCloseListener += this.RemoveListener;
 		this.SetViewID(viewID);
 		this.SetViewInstID(viewInstID);
 	}
@@ -223,7 +219,7 @@ public abstract class Controller
 	/// <summary>
 	/// 显示
 	/// </summary>
-	public void OpenView(bool active)
+	public void OpenView()
 	{
 		MouseEventMgr.Instance.RemoveMouseEventListener(EMouseEvent.Click, EMouseKey.Left, OnMouseEventHandler);
 		MouseEventMgr.Instance.RemoveMouseEventListener(EMouseEvent.Click, EMouseKey.Right, OnMouseEventHandler);
@@ -325,7 +321,7 @@ public abstract class Controller
 	/// 隐藏窗口 将窗口从显示列表中移除  内部接口 业务层不允许调用
 	/// </summary>
 	/// <param name="dlg"></param>
-	public void HideDialog(int dialogInstID)
+	private void HideDialog(int dialogInstID)
 	{
 		if (UIMgr.Instance.dicViewOnShow.ContainsKey(dialogInstID))
 		{
