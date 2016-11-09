@@ -13,11 +13,13 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile></CompilerResponseFile>
+    <CompilerResponseFile>
+    </CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows:5</UnityBuildTarget>
     <UnityVersion>5.3.4f1</UnityVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <LangVersion Condition=" '$(VisualStudioVersion)' != '10.0' ">4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -80,9 +82,10 @@
     <Compile Include="Assets\Scripts\Client\AppUtility.cs" />
     <Compile Include="Assets\Scripts\Client\ApplicationMgr.cs" />
     <Compile Include="Assets\Scripts\Client\Audio\AudioMgr.cs" />
+    <Compile Include="Assets\Scripts\Client\DAL\SymbolDAL.cs" />
     <Compile Include="Assets\Scripts\Client\Effect\EffectBase.cs" />
     <Compile Include="Assets\Scripts\Client\Effect\EffectFade.cs" />
-    <Compile Include="Assets\Scripts\Client\Model\ModelMgr.cs" />
+    <Compile Include="Assets\Scripts\Client\Model\Symbol.cs" />
     <Compile Include="Assets\Scripts\Client\StrDef.cs" />
     <Compile Include="Assets\Scripts\Client\UI\MainMenu\MainMenuController.cs" />
     <Compile Include="Assets\Scripts\Client\UI\MainMenu\MainMenuModel.cs" />
@@ -90,7 +93,6 @@
     <Compile Include="Assets\Scripts\Client\UI\PayLine\PayLineController.cs" />
     <Compile Include="Assets\Scripts\Client\UI\PayLine\PayLineModel.cs" />
     <Compile Include="Assets\Scripts\Client\UI\PayLine\PayLineViewPresenters.cs" />
-    <Compile Include="Assets\Scripts\Client\UI\Symbol\Symbol.cs" />
     <Compile Include="Assets\Scripts\Client\UI\Symbol\SymbolController.cs" />
     <Compile Include="Assets\Scripts\Client\UI\Symbol\SymbolMgr.cs" />
     <Compile Include="Assets\Scripts\Client\UI\Symbol\SymbolModel.cs" />
@@ -111,9 +113,11 @@
     <Compile Include="Assets\Scripts\Foundation\SingletonTemp.cs" />
     <Compile Include="Assets\Scripts\Foundation\SingletonWithComponent.cs" />
     <Compile Include="Assets\Scripts\Foundation\SingletonWithComponentTemp.cs" />
+    <Compile Include="Assets\Scripts\Foundation\UI\ModelMgr.cs" />
     <Compile Include="Assets\Scripts\Foundation\UI\UIComponentExt.cs" />
     <Compile Include="Assets\Scripts\Foundation\UI\UIMgr.cs" />
     <Compile Include="Assets\Scripts\Foundation\UI\ViewConfig.cs" />
+    <Compile Include="Assets\Scripts\Foundation\Utils\EnumUtils.cs" />
     <Compile Include="Assets\Scripts\Foundation\Utils\FileUtils.cs" />
     <Compile Include="Assets\Scripts\Foundation\Utils\Sequence.cs" />
     <Compile Include="Assets\Scripts\Foundation\ViewPresenters.cs" />
@@ -126,6 +130,9 @@
     <None Include="Assets\Demigiant\DOTween\DOTween50.xml" />
     <None Include="Assets\Demigiant\DOTween\Editor\DOTweenEditor.XML" />
     <None Include="Assets\Demigiant\DOTween\readme.txt" />
+    <None Include="Assets\StreamingAssets\Config\SymbolConfig.xml">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>

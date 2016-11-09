@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Setting>
+  <Item1>
+    <symbolType>Normal</symbolType>
+    <payType>Normal</payType>
+    <payFold>
+      <level1>0</level1>
+      <level2>0</level2>
+      <level3>20</level3>
+      <level4>40</level4>
+      <level5>50</level5>
+    </payFold>
+  </Item1>
+  <Item2>
+    <symbolType>Normal</symbolType>
+    <payType>Normal</payType>
+    <payFold>
+      <level1>0</level1>
+      <level2>0</level2>
+      <level3>30</level3>
+      <level4>50</level4>
+      <level5>60</level5>
+    </payFold>
+  </Item2>
+   
+</Setting>
+
+
+

@@ -26,5 +26,6 @@ public static class StrDef
 	public const string PATH_VIEWCONFIG = "Config/ViewConfig.ini";
 	public const string PATH_DEFAULT_UI_Material = "DefaultUIMaterial";
 
+	public const string PATH_SYMBOLCONFIG = "Config/SymbolConfig.xml";
 
 }
