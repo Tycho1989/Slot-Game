@@ -13,7 +13,7 @@ public class EffectFade : EffectBase
 
 		DOTween.Init(false, true, LogBehaviour.ErrorsOnly);
 		Sequence dtSequence = DOTween.Sequence();
-		dtSequence.Append(trans.DOMove(new Vector3(0, 100, 0), 1).SetRelative());
+		dtSequence.Append(trans.DOLocalMove(new Vector3(0, 100, 0), 1).SetRelative());
 		//dtSequence.Append(text.material.DOFade(0, 1).SetRelative());
 		dtSequence.OnComplete(OnTweenComplete);
 	}

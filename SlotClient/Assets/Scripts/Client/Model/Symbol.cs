@@ -25,10 +25,14 @@ public enum EPayType
 
 public class Symbol : MonoBehaviour {
 
-	public int test;
+	public int ID;
+	public int instID;
+	public string name;
 	public Texture texture;
 	public ESymbolType symbolType;
 	public EPayType payType;
 	public List<int> listPayFold = new List<int>();
+
+	public GameObject SymbolObj;
 
 }

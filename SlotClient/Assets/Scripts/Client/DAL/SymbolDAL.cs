@@ -21,6 +21,9 @@ public class SymbolDAL : MonoBehaviour {
 			try
 			{
 				Symbol symbol = new Symbol();
+				Int32.TryParse(ele.Element("ID").Value, out symbol.ID);
+				Int32.TryParse(ele.Element("instID").Value, out symbol.instID);
+				symbol.name = ele.Element("name").Value;
 				symbol.symbolType = EnumUtils.Parse<ESymbolType>(ele.Element("symbolType").Value);
 				symbol.payType = EnumUtils.Parse<EPayType>(ele.Element("payType").Value);
 				listSymbol.Add(symbol);
