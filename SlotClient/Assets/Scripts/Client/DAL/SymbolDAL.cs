@@ -11,16 +11,16 @@ public class SymbolDAL : MonoBehaviour {
 	/// 获取应用设置
 	/// </summary>
 	/// <returns>应用设置</returns>
-	public static List<Symbol> GetSymbol()
+	public static List<SymbolData> GetSymbol()
 	{
 		string path = FileUtils.GetStreamingCFilePath(string.Format(StrDef.PATH_SYMBOLCONFIG));
-		List<Symbol> listSymbol = new List<Symbol>();
+		List<SymbolData> listSymbol = new List<SymbolData>();
 		XDocument xml = XDocument.Load(path);
 		foreach (XElement ele in xml.Root.Elements())
 		{
 			try
 			{
-				Symbol symbol = new Symbol();
+				SymbolData symbol = new SymbolData();
 				Int32.TryParse(ele.Element("ID").Value, out symbol.ID);
 				Int32.TryParse(ele.Element("instID").Value, out symbol.instID);
 				symbol.name = ele.Element("name").Value;

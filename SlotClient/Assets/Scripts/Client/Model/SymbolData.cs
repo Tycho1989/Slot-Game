@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System;
 
 public enum ESymbolType
 {
@@ -23,16 +24,13 @@ public enum EPayType
 	Bonus
 }
 
-public class Symbol : MonoBehaviour {
-
+[Serializable]
+public class SymbolData 
+{
 	public int ID;
 	public int instID;
 	public string name;
-	public Sprite sprite;
-	public ESymbolType symbolType;
+    public ESymbolType symbolType;
 	public EPayType payType;
 	public List<int> listPayFold = new List<int>();
-
-	public GameObject SymbolObj;
-
 }
