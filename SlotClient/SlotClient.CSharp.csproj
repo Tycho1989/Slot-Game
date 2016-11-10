@@ -93,6 +93,7 @@
     <Compile Include="Assets\Scripts\Client\UI\PayLine\PayLineController.cs" />
     <Compile Include="Assets\Scripts\Client\UI\PayLine\PayLineModel.cs" />
     <Compile Include="Assets\Scripts\Client\UI\PayLine\PayLineViewPresenters.cs" />
+    <Compile Include="Assets\Scripts\Client\UI\Symbol\Reel.cs" />
     <Compile Include="Assets\Scripts\Client\UI\Symbol\SymbolController.cs" />
     <Compile Include="Assets\Scripts\Client\UI\Symbol\SymbolMgr.cs" />
     <Compile Include="Assets\Scripts\Client\UI\Symbol\SymbolModel.cs" />
@@ -130,9 +131,7 @@
     <None Include="Assets\Demigiant\DOTween\DOTween50.xml" />
     <None Include="Assets\Demigiant\DOTween\Editor\DOTweenEditor.XML" />
     <None Include="Assets\Demigiant\DOTween\readme.txt" />
-    <None Include="Assets\StreamingAssets\Config\SymbolConfig.xml">
-      <SubType>Designer</SubType>
-    </None>
+    <None Include="Assets\StreamingAssets\Config\SymbolConfig.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>

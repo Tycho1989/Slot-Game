@@ -28,7 +28,7 @@ public class Symbol : MonoBehaviour {
 	public int ID;
 	public int instID;
 	public string name;
-	public Texture texture;
+	public Sprite sprite;
 	public ESymbolType symbolType;
 	public EPayType payType;
 	public List<int> listPayFold = new List<int>();
