@@ -73,6 +73,9 @@
     <Reference Include="DOTween50">
       <HintPath>Assets\Demigiant\DOTween\DOTween50.dll</HintPath>
     </Reference>
+    <Reference Include="Vectrosity">
+      <HintPath>Assets\Plugins\Vectrosity\Vectrosity.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Demigiant\DOTween\Examples\Basics.cs" />
@@ -94,7 +97,6 @@
     <Compile Include="Assets\Scripts\Client\UI\Symbol\Reel.cs" />
     <Compile Include="Assets\Scripts\Client\UI\Symbol\SymbolController.cs" />
     <Compile Include="Assets\Scripts\Client\UI\Symbol\SymbolInstance.cs" />
-    <Compile Include="Assets\Scripts\Client\UI\Symbol\SymbolMgr.cs" />
     <Compile Include="Assets\Scripts\Client\UI\Symbol\SymbolModel.cs" />
     <Compile Include="Assets\Scripts\Client\UI\Symbol\SymbolViewPresenters.cs" />
     <Compile Include="Assets\Scripts\Client\UI\Template\TemplateController.cs" />
@@ -132,6 +134,8 @@
     <None Include="Assets\Demigiant\DOTween\Editor\DOTweenEditor.XML" />
     <None Include="Assets\Demigiant\DOTween\readme.txt" />
     <None Include="Assets\StreamingAssets\Config\SymbolConfig.xml" />
+    <None Include="Assets\Vectrosity 5\Vectrosity 5 Documentation\Vectrosity changelog.txt" />
+    <None Include="Assets\Vectrosity 5\Vectrosity 5 Documentation\Vectrosity5 Upgrade Guide.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>
