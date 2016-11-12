@@ -39,9 +39,10 @@ public class UIEventListen : MonoBehaviour, IEventSystemHandler, IPointerEnterHa
     public DelegateVoid onCancel;                       //取消按钮事件代理;
     public DelegateVoid onScroll;                       //滚动事件代理;
 
-	#endregion
+    #endregion
 
-	#region  带参 System.Object
+    #region  带参 System.Object
+    public int intParm;
 	public DelegateInt onClickInt;                      //点击事件代理;   
 	public DelegateInt onDownInt;                       //按下事件代理;
 	public DelegateInt onEnterInt;                      //点击进入物体事件代理;
@@ -144,6 +145,7 @@ public class UIEventListen : MonoBehaviour, IEventSystemHandler, IPointerEnterHa
 	public void OnPointerClick(PointerEventData eventData)
     {
         if (onClick != null) { onClick(); }
+        if (onClickInt != null) { onClickInt(intParm); }
     }
 
 	/// <summary>
