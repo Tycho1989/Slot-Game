@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+  * * * * *
+  * * * * *
+  * * * * *
+  0  1  2  3  4
+  5  6  7  8  9
+  10  11  12  13  14
+-->
+
+<Setting>
+  <lineCount>20</lineCount>
+<!--
+  * * * * *
+  - - - - -
+  * * * * *
+-->
+  <Item0>
+    <ID>1</ID>
+    <name>1</name>
+    <linePos>
+      <pos>5</pos>
+      <pos>6</pos>
+      <pos>7</pos>
+      <pos>8</pos>
+      <pos>9</pos>
+    </linePos>
+  </Item0>
+<!--
+  - - - - -
+  * * * * *
+  * * * * *
+-->
+  <Item1>
+    <ID>2</ID>
+    <name>2</name>
+    <linePos>
+      <pos>0</pos>
+      <pos>1</pos>
+      <pos>2</pos>
+      <pos>3</pos>
+      <pos>4</pos>
+    </linePos>    
+  </Item1>
+<!--
+  * * * * *
+  * * * * *
+  - - - - -
+-->
+  <Item2>
+    <ID>3</ID>
+    <name>3</name>
+    <linePos>
+      <pos>10</pos>
+      <pos>11</pos>
+      <pos>12</pos>
+      <pos>13</pos>
+      <pos>14</pos>
+    </linePos>    
+  </Item2>
+<!--
+  - * * * -
+  * - * - *
+  * * - * *
+-->
+  <Item3>
+    <ID>4</ID>
+    <name>4</name>
+    <linePos>
+      <pos>0</pos>
+      <pos>6</pos>
+      <pos>12</pos>
+      <pos>8</pos>
+      <pos>4</pos>
+    </linePos>
+  </Item3>
+<!--
+  * * - * *
+  * - * - *
+  - * * * -
+-->
+  <Item4>
+    <ID>5</ID>
+    <name>5</name>
+    <linePos>
+      <pos>10</pos>
+      <pos>6</pos>
+      <pos>2</pos>
+      <pos>8</pos>
+      <pos>14</pos>
+    </linePos>
+  </Item4>
+<!--
+  * - - - *
+  - * * * -
+  * * * * *
+-->
+  <Item5>
+    <ID>6</ID>
+    <name>6</name>
+    <linePos>
+      <pos>5</pos>
+      <pos>1</pos>
+      <pos>2</pos>
+      <pos>3</pos>
+      <pos>9</pos>
+    </linePos>
+  </Item5>
+<!--
+  * * * * *
+  - * * * -
+  * - - - *
+-->
+  <Item6>
+    <ID>7</ID>
+    <name>7</name>
+    <linePos>
+      <pos>5</pos>
+      <pos>11</pos>
+      <pos>12</pos>
+      <pos>13</pos>
+      <pos>9</pos>
+    </linePos>
+  </Item6>
+<!--
+  - - * * *
+  * * - * *
+  * * * - -
+-->
+  <Item7>
+    <ID>8</ID>
+    <name>8</name>
+    <linePos>
+      <pos>0</pos>
+      <pos>1</pos>
+      <pos>7</pos>
+      <pos>13</pos>
+      <pos>14</pos>
+    </linePos>
+  </Item7>
+  <!--
+  * * * - -
+  * * - * *
+  - - * * *
+-->
+  <Item8>
+    <ID>9</ID>
+    <name>9</name>
+    <linePos>
+      <pos>10</pos>
+      <pos>11</pos>
+      <pos>7</pos>
+      <pos>3</pos>
+      <pos>4</pos>
+    </linePos>
+  </Item8>
+</Setting>
+
+
+

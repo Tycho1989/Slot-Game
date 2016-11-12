@@ -5,13 +5,13 @@ using Slot.Utils;
 using System.Collections.Generic;
 using System;
 
-public class SymbolDAL : MonoBehaviour {
-
+public class SymbolDAL
+{
 	/// <summary>
 	/// 获取应用设置
 	/// </summary>
 	/// <returns>应用设置</returns>
-	public static List<SymbolData> GetSymbol()
+	public static List<SymbolData> GetConfig()
 	{
 		string path = FileUtils.GetStreamingCFilePath(string.Format(StrDef.PATH_SYMBOLCONFIG));
 		List<SymbolData> listSymbol = new List<SymbolData>();

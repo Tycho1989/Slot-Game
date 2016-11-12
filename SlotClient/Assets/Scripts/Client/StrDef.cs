@@ -27,6 +27,7 @@ public static class StrDef
 	public const string PATH_DEFAULT_UI_Material = "DefaultUIMaterial";
 
 	public const string PATH_SYMBOLCONFIG = "Config/SymbolConfig.xml";
-	public const string PATH_SYMBOLTEXTURE = "UI/SymbolView/Symbol";
+    public const string PATH_PAYLINECONFIG = "Config/PayLineConfig.xml";
+    public const string PATH_SYMBOLTEXTURE = "UI/SymbolView/Symbol";
 
 }
