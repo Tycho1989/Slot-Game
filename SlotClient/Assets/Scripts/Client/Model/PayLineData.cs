@@ -8,5 +8,8 @@ public class PayLineData
 {
 	public int ID;
 	public string name;
-	public List<int> listPos = new List<int>();
+    public Color32 color;
+    public float width;
+    public List<int> listPosIndex = new List<int>();
+    public List<Vector2> listPos = new List<Vector2>();
 }

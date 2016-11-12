@@ -24,11 +24,13 @@ public class PayLineDAL
                     PayLineData payLine = new PayLineData();
                     Int32.TryParse(ele.Element("ID").Value, out payLine.ID);
                     payLine.name = ele.Element("name").Value;
+                    payLine.color = ColorUtils.GetColor32FromStr(ele.Element("color").Value);
+                    float.TryParse(ele.Element("width").Value, out payLine.width);
                     foreach (XElement linePos in ele.Element("linePos").Elements())
                     {
                         int pos;
                         Int32.TryParse(linePos.Value, out pos);
-                        payLine.listPos.Add(pos);
+                        payLine.listPosIndex.Add(pos);
                     }
                     listLine.Add(payLine);
                 }
@@ -55,7 +57,7 @@ public class PayLineDAL
         {
             try
             {
-                if (ele.Name != "lineCount")
+                if (ele.Name == "lineCount")
                 {
                     Int32.TryParse(ele.Value, out lineCount);
                 }
@@ -67,4 +69,5 @@ public class PayLineDAL
         }
         return lineCount;
     }
+
 }

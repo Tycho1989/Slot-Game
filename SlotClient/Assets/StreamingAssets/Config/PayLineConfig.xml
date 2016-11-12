@@ -18,6 +18,8 @@
   <Item0>
     <ID>1</ID>
     <name>1</name>
+    <color>00ffffff</color>
+    <width>0.3</width>    
     <linePos>
       <pos>5</pos>
       <pos>6</pos>
@@ -34,6 +36,8 @@
   <Item1>
     <ID>2</ID>
     <name>2</name>
+    <color>000000ff</color>
+    <width>0.3</width> 
     <linePos>
       <pos>0</pos>
       <pos>1</pos>
@@ -50,6 +54,8 @@
   <Item2>
     <ID>3</ID>
     <name>3</name>
+    <color>0000ffff</color>
+    <width>0.3</width> 
     <linePos>
       <pos>10</pos>
       <pos>11</pos>
@@ -66,6 +72,8 @@
   <Item3>
     <ID>4</ID>
     <name>4</name>
+    <color>a52a2aff</color>
+    <width>0.3</width> 
     <linePos>
       <pos>0</pos>
       <pos>6</pos>
@@ -82,6 +90,8 @@
   <Item4>
     <ID>5</ID>
     <name>5</name>
+    <color>0000a0ff</color>
+    <width>0.3</width> 
     <linePos>
       <pos>10</pos>
       <pos>6</pos>
@@ -98,6 +108,8 @@
   <Item5>
     <ID>6</ID>
     <name>6</name>
+    <color>ff00ffff</color>
+    <width>0.3</width> 
     <linePos>
       <pos>5</pos>
       <pos>1</pos>
@@ -114,6 +126,8 @@
   <Item6>
     <ID>7</ID>
     <name>7</name>
+    <color>008000ff</color>
+    <width>0.3</width> 
     <linePos>
       <pos>5</pos>
       <pos>11</pos>
@@ -130,6 +144,8 @@
   <Item7>
     <ID>8</ID>
     <name>8</name>
+    <color>add8e6ff</color>
+    <width>0.3</width> 
     <linePos>
       <pos>0</pos>
       <pos>1</pos>
@@ -146,6 +162,8 @@
   <Item8>
     <ID>9</ID>
     <name>9</name>
+    <color>808000ff</color>
+    <width>0.3</width> 
     <linePos>
       <pos>10</pos>
       <pos>11</pos>
