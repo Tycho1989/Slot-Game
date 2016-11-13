@@ -29,5 +29,7 @@ public static class StrDef
 	public const string PATH_SYMBOLCONFIG = "Config/SymbolConfig.xml";
     public const string PATH_PAYLINECONFIG = "Config/PayLineConfig.xml";
     public const string PATH_SYMBOLTEXTURE = "UI/SymbolView/Symbol";
+    public const string PATH_PAYLINETEXTURE = "UI/PayLineView/PayLineImage";
+    public const string PATH_PAYLINEMATERIAL = "UI/PayLineView/PayLineMaterial";
 
 }
