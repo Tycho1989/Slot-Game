@@ -89,6 +89,7 @@
     <Compile Include="Assets\Scripts\Client\Effect\EffectFade.cs" />
     <Compile Include="Assets\Scripts\Client\Model\PayLineData.cs" />
     <Compile Include="Assets\Scripts\Client\Model\SymbolData.cs" />
+    <Compile Include="Assets\Scripts\Client\StateMgr.cs" />
     <Compile Include="Assets\Scripts\Client\StrDef.cs" />
     <Compile Include="Assets\Scripts\Client\UI\MainMenu\MainMenuController.cs" />
     <Compile Include="Assets\Scripts\Client\UI\MainMenu\MainMenuModel.cs" />
@@ -106,12 +107,9 @@
     <Compile Include="Assets\Scripts\Client\UI\Template\TemplateViewPresenters.cs" />
     <Compile Include="Assets\Scripts\Foundation\Controller.cs" />
     <Compile Include="Assets\Scripts\Foundation\Event\InputEventDef.cs" />
-    <Compile Include="Assets\Scripts\Foundation\Event\KeyBoardEventMgr.cs" />
     <Compile Include="Assets\Scripts\Foundation\Event\LayerID.cs" />
-    <Compile Include="Assets\Scripts\Foundation\Event\MouseEventMgr.cs" />
     <Compile Include="Assets\Scripts\Foundation\Event\UIEventListen.cs" />
     <Compile Include="Assets\Scripts\Foundation\Model.cs" />
-    <Compile Include="Assets\Scripts\Foundation\OpenFileName.cs" />
     <Compile Include="Assets\Scripts\Foundation\Resource\AssetLoadMgr.cs" />
     <Compile Include="Assets\Scripts\Foundation\Singleton.cs" />
     <Compile Include="Assets\Scripts\Foundation\SingletonTemp.cs" />

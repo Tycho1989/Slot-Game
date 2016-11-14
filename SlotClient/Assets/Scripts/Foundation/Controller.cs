@@ -99,36 +99,7 @@ public abstract class Controller
 		{
 			Debug.Log(ex);
 		}
-		/*
-		string viewPath = string.Format("{0}/{1}", StrDef.VIEWDIR, viewName);
-		if (native)
-		{
-			GameObject view = AssetLoadMgr.Instance.LoadnNativeAsset<GameObject>(viewPath);
-			if (null != view)
-			{
-				Init(view);
-			}
-			else
-			{
-				Debug.LogError(string.Format("The view [{0}] is not exists", view.name));
-			}
-		}
-		else
-		{
-			ModelMgr.Instance.LoadModel(viewPath, new ModelMgr.ModelCallback((string name, GameObject view, object callbackData)=>
-			{
-				if(null != view)
-				{
-					Init(view);
-				}
-				else
-				{
-					Debug.LogError(string.Format("The view [{0}] is not exists", name));
-				}
-			}));
-		}
-		*/
-	}
+    }
 
 	/// <summary>
 	/// 初始化
@@ -217,19 +188,6 @@ public abstract class Controller
 	/// </summary>
 	public void OpenView()
 	{
-		MouseEventMgr.Instance.RemoveMouseEventListener(EMouseEvent.Click, EMouseKey.Left, OnMouseEventHandler);
-		MouseEventMgr.Instance.RemoveMouseEventListener(EMouseEvent.Click, EMouseKey.Right, OnMouseEventHandler);
-		MouseEventMgr.Instance.RemoveMouseEventListener(EMouseEvent.DoubleClick, EMouseKey.Left, OnMouseEventHandler);
-		MouseEventMgr.Instance.RemoveMouseEventListener(EMouseEvent.DoubleClick, EMouseKey.Right, OnMouseEventHandler);
-		MouseEventMgr.Instance.RemoveMouseEventListener(EMouseEvent.Down, EMouseKey.Left, OnMouseEventHandler);
-		MouseEventMgr.Instance.RemoveMouseEventListener(EMouseEvent.Down, EMouseKey.Right, OnMouseEventHandler);
-		MouseEventMgr.Instance.AddMouseEventListener(EMouseEvent.Click, EMouseKey.Left, OnMouseEventHandler);
-		MouseEventMgr.Instance.AddMouseEventListener(EMouseEvent.Click, EMouseKey.Right, OnMouseEventHandler);
-		MouseEventMgr.Instance.AddMouseEventListener(EMouseEvent.DoubleClick, EMouseKey.Left, OnMouseEventHandler);
-		MouseEventMgr.Instance.AddMouseEventListener(EMouseEvent.DoubleClick, EMouseKey.Right, OnMouseEventHandler);
-		MouseEventMgr.Instance.AddMouseEventListener(EMouseEvent.Down, EMouseKey.Left, OnMouseEventHandler);
-		MouseEventMgr.Instance.AddMouseEventListener(EMouseEvent.Down, EMouseKey.Right, OnMouseEventHandler);
-		KeyBoardEventMgr.Instance.AddKeyBoardEventListener(KeyboardEventHandler);
 		if (!IsOnShow)
 		{
 			intShowFrame = Time.frameCount;
@@ -287,13 +245,6 @@ public abstract class Controller
 	/// </summary>
 	public virtual void CloseDialog()
 	{
-		MouseEventMgr.Instance.RemoveMouseEventListener(EMouseEvent.Click, EMouseKey.Left, OnMouseEventHandler);
-		MouseEventMgr.Instance.RemoveMouseEventListener(EMouseEvent.Click, EMouseKey.Right, OnMouseEventHandler);
-		MouseEventMgr.Instance.RemoveMouseEventListener(EMouseEvent.DoubleClick, EMouseKey.Left, OnMouseEventHandler);
-		MouseEventMgr.Instance.RemoveMouseEventListener(EMouseEvent.DoubleClick, EMouseKey.Right, OnMouseEventHandler);
-		MouseEventMgr.Instance.RemoveMouseEventListener(EMouseEvent.Down, EMouseKey.Left, OnMouseEventHandler);
-		MouseEventMgr.Instance.RemoveMouseEventListener(EMouseEvent.Down, EMouseKey.Right, OnMouseEventHandler);
-		KeyBoardEventMgr.Instance.RemoveKeyBoardEventListener(KeyboardEventHandler);
 		if (IsOnShow)
 		{
 			for (int i = 0; i < lstChildDialog.Count; ++i)
@@ -355,58 +306,6 @@ public abstract class Controller
 	{
 		this.View.viewPanel.gameObject.SetActive(active);
 	}
-
-	#region 鼠标事件
-	private void OnMouseEventHandler(MouseEventMgr.ResonseInfo eventinfo)
-	{
-		if (IsOnShow && IsFocused && eventinfo.objTarget != null)
-		{
-			Transform transDialog = UIMgr.Instance.GetDialogTransformByUI(eventinfo.objTarget.transform);
-			if (transDialog != null && transDialog == View.viewPanel.transform)
-			{
-				if (!IsFocused)
-				{
-					IsFocused = true;
-					UIMgr.Instance.SetOtherDlgUnFocus(this);
-				}
-			}
-
-			dlgClickEvent.Invoke();
-		}
-
-		if (isCloseWhenNotClickSelf && IsOnShow && IsFocused)
-		{
-			if (eventinfo.objTarget == null || eventinfo.objTarget.layer != LayerID.LayerUI)
-			{
-				CloseDialog();
-			}
-			else
-			{
-				//TODO
-				//if (!View.viewPanel.CheckChild(eventinfo.objTarget))
-				//{
-				//	CloseDialog();
-				//}
-			}
-		}
-	}
-
-	#endregion
-
-	#region 键盘事件
-	private void KeyboardEventHandler(KeyBoardEventMgr.ResonseInfo eventinfo)
-	{
-		if (IsOnShow && IsFocused)
-		{
-			OnKeyboardEventHandler(eventinfo);
-		}
-	}
-
-	protected virtual void OnKeyboardEventHandler(KeyBoardEventMgr.ResonseInfo eventinfo)
-	{
-
-	}
-	#endregion
 
 	public class DialogClickEvent : UnityEvent
 	{

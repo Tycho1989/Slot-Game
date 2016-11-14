@@ -35,32 +35,33 @@ public enum ApplicationMode
 /// </summary>
 public class ApplicationMgr : SingletonWithComponent<ApplicationMgr>
 {
-	/// <summary>
-	/// 版本模式
-	/// </summary>
-	private ApplicationMode appMode;
+    /// <summary>
+    /// 版本模式
+    /// </summary>
+    public ApplicationMode appMode { get; private set; }
 
-	/// <summary>
-	/// 初始化
-	/// </summary>
-	protected override void InitPre()
+    /// <summary>
+    /// 初始化
+    /// </summary>
+    protected override void InitPre()
 	{
-		this.InitMgr();
 		this.InitializeAppMode();
-	}
+        StateMgr.Instance.AddEvent();
+        StateMgr.Instance.CurState = EState.NotStarted;
+    }
 
 	/// <summary>
 	/// 后初始化
 	/// </summary>
 	protected override void InitPost()
 	{
+        this.InitMgr();
+    }
 
-	}
-
-	/// <summary>
-	/// 清理（多次）
-	/// </summary>
-	protected override void Clear()
+    /// <summary>
+    /// 清理（多次）
+    /// </summary>
+    protected override void Clear()
 	{
 
 	}
@@ -78,7 +79,9 @@ public class ApplicationMgr : SingletonWithComponent<ApplicationMgr>
 	/// </summary>
 	private void InitMgr()
 	{
-		GameObject uiMgrObj = new GameObject(typeof(UIMgr).Name);
+        GameObject stateMgrObj = new GameObject(typeof(StateMgr).Name);
+
+        GameObject uiMgrObj = new GameObject(typeof(UIMgr).Name);
 		uiMgrObj.AddComponent<UIMgr>();
 
 		//GameObject modelMgrObj = new GameObject(typeof(ModelMgr).Name);
