@@ -14,6 +14,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
+using DG.Tweening;
 
 /// <summary>
 /// 应用模式
@@ -48,12 +49,14 @@ public class ApplicationMgr : SingletonWithComponent<ApplicationMgr>
 		this.InitializeAppMode();
         StateMgr.Instance.AddEvent();
         StateMgr.Instance.CurState = EState.NotStarted;
+        DOTween.Init(true, true, LogBehaviour.ErrorsOnly);
+        DOTween.defaultAutoKill = true;
     }
 
-	/// <summary>
-	/// 后初始化
-	/// </summary>
-	protected override void InitPost()
+    /// <summary>
+    /// 后初始化
+    /// </summary>
+    protected override void InitPost()
 	{
         this.InitMgr();
     }

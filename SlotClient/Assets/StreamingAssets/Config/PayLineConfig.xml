@@ -10,7 +10,9 @@
 
 <Setting>
   <lineCount>20</lineCount>
-<!--
+  <durationTime>0.4</durationTime>
+
+  <!--
   * * * * *
   - - - - -
   * * * * *
@@ -172,6 +174,7 @@
       <pos>4</pos>
     </linePos>
   </Item8>
+
 </Setting>
 
 

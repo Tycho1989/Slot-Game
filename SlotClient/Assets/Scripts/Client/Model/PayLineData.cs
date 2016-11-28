@@ -15,6 +15,12 @@ public class PayLineData
     public List<Vector2> listPosIndexArr = new List<Vector2>();
     public List<Vector2> listPos = new List<Vector2>();
     public GameObject icon;
+    public Color32 defaultIconColor;
     public VectorLine vectorLine;
+
+    public PayLineData()
+    {
+        defaultIconColor = Color.white;
+    }
 
 }

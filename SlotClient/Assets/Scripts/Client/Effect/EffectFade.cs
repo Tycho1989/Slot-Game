@@ -10,8 +10,6 @@ public class EffectFade : EffectBase
 	{
 		RectTransform trans = this.GetComponent<RectTransform>();
 		Text text = this.GetComponent<Text>();
-
-		DOTween.Init(true, true, LogBehaviour.ErrorsOnly);
 		Sequence dtSequence = DOTween.Sequence();
 		dtSequence.Append(trans.DOLocalMove(new Vector3(0, 100, 0), 1).SetRelative());
 		//dtSequence.Append(text.material.DOFade(0, 1).SetRelative());

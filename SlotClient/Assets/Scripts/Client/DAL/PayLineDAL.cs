@@ -19,7 +19,7 @@ public class PayLineDAL
 		{
 			try
 			{
-                if(ele.Name!= "lineCount")
+                if(ele.Name.ToString().StartsWith("Item"))
                 {
                     PayLineData payLine = new PayLineData();
                     Int32.TryParse(ele.Element("ID").Value, out payLine.ID);
@@ -48,11 +48,12 @@ public class PayLineDAL
     /// <summary>
     /// 获取设置
     /// </summary>
-    public static int GetLineCount()
+    public static void GetConfig(out int lineCount, out float durationTime)
     {
+        lineCount = 0;
+        durationTime = 0;
         string path = FileUtils.GetStreamingCFilePath(string.Format(StrDef.PATH_PAYLINECONFIG));
         XDocument xml = XDocument.Load(path);
-        int lineCount = 0;
         foreach (XElement ele in xml.Root.Elements())
         {
             try
@@ -61,13 +62,16 @@ public class PayLineDAL
                 {
                     Int32.TryParse(ele.Value, out lineCount);
                 }
+                else if (ele.Name == "durationTime")
+                {
+                    float.TryParse(ele.Value, out durationTime);
+                }
             }
             catch (Exception ex)
             {
                 Debug.LogWarning(string.Format("Parse the config file [PayLineConfig.xml] error"));
             }
         }
-        return lineCount;
     }
 
 }
