@@ -5,16 +5,16 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{F2F9603C-683E-3878-A958-61C9C6AB7EA5}</ProjectGuid>
+    <ProjectGuid>{840E61DE-0298-3D7E-E40D-D843A42594A4}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <AssemblyName>Assembly-CSharp</AssemblyName>
+    <AssemblyName>Assembly-CSharp-firstpass</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
     <CompilerResponseFile></CompilerResponseFile>
-    <UnityProjectType>Game:1</UnityProjectType>
+    <UnityProjectType>GamePlugins:3</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows:5</UnityBuildTarget>
     <UnityVersion>5.4.3f1</UnityVersion>
     <RootNamespace></RootNamespace>
@@ -78,63 +78,57 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="SlotClient.Plugins.csproj">
-      <Project>{840E61DE-0298-3D7E-E40D-D843A42594A4}</Project>
-      <Name>SlotClient.Plugins</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Assets\Demigiant\DOTween\Examples\Basics.cs" />
-    <Compile Include="Assets\Demigiant\DOTween\Examples\Sequences.cs" />
-    <Compile Include="Assets\Scripts\Client\AppUtility.cs" />
-    <Compile Include="Assets\Scripts\Client\ApplicationMgr.cs" />
-    <Compile Include="Assets\Scripts\Client\Audio\AudioMgr.cs" />
-    <Compile Include="Assets\Scripts\Client\DAL\PayLineDAL.cs" />
-    <Compile Include="Assets\Scripts\Client\DAL\SymbolDAL.cs" />
-    <Compile Include="Assets\Scripts\Client\Effect\EffectBase.cs" />
-    <Compile Include="Assets\Scripts\Client\Effect\EffectFade.cs" />
-    <Compile Include="Assets\Scripts\Client\Model\PayLineData.cs" />
-    <Compile Include="Assets\Scripts\Client\Model\SymbolData.cs" />
-    <Compile Include="Assets\Scripts\Client\StateMgr.cs" />
-    <Compile Include="Assets\Scripts\Client\StrDef.cs" />
-    <Compile Include="Assets\Scripts\Client\UI\MainMenu\MainMenuController.cs" />
-    <Compile Include="Assets\Scripts\Client\UI\MainMenu\MainMenuModel.cs" />
-    <Compile Include="Assets\Scripts\Client\UI\MainMenu\MainMenuViewPresenters.cs" />
-    <Compile Include="Assets\Scripts\Client\UI\PayLine\PayLineController.cs" />
-    <Compile Include="Assets\Scripts\Client\UI\PayLine\PayLineModel.cs" />
-    <Compile Include="Assets\Scripts\Client\UI\PayLine\PayLineViewPresenters.cs" />
-    <Compile Include="Assets\Scripts\Client\UI\Symbol\Reel.cs" />
-    <Compile Include="Assets\Scripts\Client\UI\Symbol\SymbolController.cs" />
-    <Compile Include="Assets\Scripts\Client\UI\Symbol\SymbolInstance.cs" />
-    <Compile Include="Assets\Scripts\Client\UI\Symbol\SymbolModel.cs" />
-    <Compile Include="Assets\Scripts\Client\UI\Symbol\SymbolViewPresenters.cs" />
-    <Compile Include="Assets\Scripts\Client\UI\Template\TemplateController.cs" />
-    <Compile Include="Assets\Scripts\Client\UI\Template\TemplateModel.cs" />
-    <Compile Include="Assets\Scripts\Client\UI\Template\TemplateViewPresenters.cs" />
-    <Compile Include="Assets\Scripts\Foundation\Controller.cs" />
-    <Compile Include="Assets\Scripts\Foundation\Event\InputEventDef.cs" />
-    <Compile Include="Assets\Scripts\Foundation\Event\LayerID.cs" />
-    <Compile Include="Assets\Scripts\Foundation\Event\UIEventListen.cs" />
-    <Compile Include="Assets\Scripts\Foundation\Model.cs" />
-    <Compile Include="Assets\Scripts\Foundation\Resource\AssetLoadMgr.cs" />
-    <Compile Include="Assets\Scripts\Foundation\Singleton.cs" />
-    <Compile Include="Assets\Scripts\Foundation\SingletonTemp.cs" />
-    <Compile Include="Assets\Scripts\Foundation\SingletonWithComponent.cs" />
-    <Compile Include="Assets\Scripts\Foundation\SingletonWithComponentTemp.cs" />
-    <Compile Include="Assets\Scripts\Foundation\UI\ModelMgr.cs" />
-    <Compile Include="Assets\Scripts\Foundation\UI\UIComponentExt.cs" />
-    <Compile Include="Assets\Scripts\Foundation\UI\UIMgr.cs" />
-    <Compile Include="Assets\Scripts\Foundation\UI\ViewConfig.cs" />
-    <Compile Include="Assets\Scripts\Foundation\Utils\CloneUtils.cs" />
-    <Compile Include="Assets\Scripts\Foundation\Utils\ColorUtils.cs" />
-    <Compile Include="Assets\Scripts\Foundation\Utils\EnumUtils.cs" />
-    <Compile Include="Assets\Scripts\Foundation\Utils\FileUtils.cs" />
-    <Compile Include="Assets\Scripts\Foundation\Utils\Sequence.cs" />
-    <Compile Include="Assets\Scripts\Foundation\Utils\StringUtils.cs" />
-    <Compile Include="Assets\Scripts\Foundation\ViewPresenters.cs" />
-    <Compile Include="Assets\Test\Test.cs" />
-    <Compile Include="Assets\Test\Test1.cs" />
-    <Compile Include="Assets\Test\Test_SingletonWithComponent.cs" />
+    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\ExampleScenes\Scripts\MA_Bootstrapper.cs" />
+    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\ExampleScenes\Scripts\MA_DestroyFinishedParticle.cs" />
+    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\ExampleScenes\Scripts\MA_EnemyOne.cs" />
+    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\ExampleScenes\Scripts\MA_EnemySpawner.cs" />
+    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\ExampleScenes\Scripts\MA_GameScene.cs" />
+    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\ExampleScenes\Scripts\MA_Laser.cs" />
+    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\ExampleScenes\Scripts\MA_LocalizationUI.cs" />
+    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\ExampleScenes\Scripts\MA_PlayerControl.cs" />
+    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\ExampleScenes\Scripts\MA_PlayerSpawnerControl.cs" />
+    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\ExampleScenes\Scripts\MA_SampleICustomEventReceiver.cs" />
+    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\ExampleScenes\Scripts\MA_TestUI.cs" />
+    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\Scripts\Events\ButtonClicker.cs" />
+    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\Scripts\Events\EventSounds.cs" />
+    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\Scripts\Events\FootstepSounds.cs" />
+    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\Scripts\Events\MechanimStateCustomEvents.cs" />
+    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\Scripts\Events\MechanimStateSounds.cs" />
+    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\Scripts\ResultObjects\PlaySoundResult.cs" />
+    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\Scripts\Settings\AudioEvent.cs" />
+    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\Scripts\Settings\AudioEventGroup.cs" />
+    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\Scripts\Settings\AudioScriptOrder.cs" />
+    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\Scripts\Settings\BusFadeInfo.cs" />
+    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\Scripts\Settings\CustomEvent.cs" />
+    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\Scripts\Settings\DuckGroupInfo.cs" />
+    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\Scripts\Settings\DynamicGroupVariation.cs" />
+    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\Scripts\Settings\DynamicSoundGroup.cs" />
+    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\Scripts\Settings\FootstepGroup.cs" />
+    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\Scripts\Settings\GroupBus.cs" />
+    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\Scripts\Settings\GroupFadeInfo.cs" />
+    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\Scripts\Settings\ICustomEventReceiver.cs" />
+    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\Scripts\Settings\MasterAudioGroup.cs" />
+    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\Scripts\Settings\MasterAudioSettings.cs" />
+    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\Scripts\Settings\MasterCustomEventAttribute.cs" />
+    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\Scripts\Settings\MusicSetting.cs" />
+    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\Scripts\Settings\SoundGroupAttribute.cs" />
+    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\Scripts\Settings\SoundGroupVariation.cs" />
+    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\Scripts\Settings\SoundGroupVariationUpdater.cs" />
+    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\Scripts\Singleton\AudioPrioritizer.cs" />
+    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\Scripts\Singleton\AudioResourceOptimizer.cs" />
+    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\Scripts\Singleton\MasterAudio.cs" />
+    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\Scripts\Singleton\PersistentAudioSettings.cs" />
+    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\Scripts\Singleton\SingletonScriptable.cs" />
+    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\Scripts\Singleton\SoundGroupOrganizer.cs" />
+    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\Scripts\Utility\ArrayListUtil.cs" />
+    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\Scripts\Utility\AudioUtil.cs" />
+    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\Scripts\Utility\CoroutineHelper.cs" />
+    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\Scripts\Utility\DTMonoHelper.cs" />
+    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\Scripts\Utility\DelayBetweenSongs.cs" />
+    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\Scripts\Utility\DynamicSoundGroupCreator.cs" />
+    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\Scripts\Utility\PlaylistController.cs" />
+    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\Scripts\Utility\UtilStrings.cs" />
+    <Compile Include="Assets\Plugins\RelationsInspector\AutoBackendAttributes.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Demigiant\DOTween\DOTween.XML" />

@@ -5,16 +5,16 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{F2F9603C-683E-3878-A958-61C9C6AB7EA5}</ProjectGuid>
+    <ProjectGuid>{C7DD2EFC-5AA2-6EAB-4990-9F845FFA2148}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <AssemblyName>Assembly-CSharp</AssemblyName>
+    <AssemblyName>Assembly-CSharp-Editor-firstpass</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
+    <TargetFrameworkProfile>Unity Full v3.5</TargetFrameworkProfile>
     <CompilerResponseFile></CompilerResponseFile>
-    <UnityProjectType>Game:1</UnityProjectType>
+    <UnityProjectType>EditorPlugins:7</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows:5</UnityBuildTarget>
     <UnityVersion>5.4.3f1</UnityVersion>
     <RootNamespace></RootNamespace>
@@ -52,14 +52,50 @@
     <Reference Include="UnityEngine">
       <HintPath>Library\UnityAssemblies\UnityEngine.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEditor">
+      <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Advertisements">
+      <HintPath>Library\UnityAssemblies\UnityEditor.Advertisements.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>Library\UnityAssemblies\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.EditorTestsRunner">
+      <HintPath>Library\UnityAssemblies\UnityEditor.EditorTestsRunner.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.UI">
+      <HintPath>Library\UnityAssemblies\UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Networking">
       <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEditor">
-      <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
+    <Reference Include="UnityEditor.Networking">
+      <HintPath>Library\UnityAssemblies\UnityEditor.Networking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.TreeEditor">
+      <HintPath>Library\UnityAssemblies\UnityEditor.TreeEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Graphs">
+      <HintPath>Library\UnityAssemblies\UnityEditor.Graphs.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Android.Extensions">
+      <HintPath>Library\UnityAssemblies\UnityEditor.Android.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions">
+      <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.WebGL.Extensions">
+      <HintPath>Library\UnityAssemblies\UnityEditor.WebGL.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.WindowsStandalone.Extensions">
+      <HintPath>Library\UnityAssemblies\UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
+      <HintPath>Library\UnityAssemblies\SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.iOS.Extensions.Xcode">
       <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
@@ -73,8 +109,17 @@
     <Reference Include="DOTween50">
       <HintPath>Assets\Demigiant\DOTween\DOTween50.dll</HintPath>
     </Reference>
+    <Reference Include="DOTweenEditor">
+      <HintPath>Assets\Demigiant\DOTween\Editor\DOTweenEditor.dll</HintPath>
+    </Reference>
     <Reference Include="Vectrosity">
       <HintPath>Assets\Plugins\Vectrosity\Vectrosity.dll</HintPath>
+    </Reference>
+    <Reference Include="VectrosityEditor">
+      <HintPath>Assets\Plugins\Vectrosity\Editor\VectrosityEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="RelationsInspector">
+      <HintPath>Assets\Plugins\Editor\RelationsInspector\RelationsInspector.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -82,59 +127,53 @@
       <Project>{840E61DE-0298-3D7E-E40D-D843A42594A4}</Project>
       <Name>SlotClient.Plugins</Name>
     </ProjectReference>
+    <ProjectReference Include="SlotClient.csproj">
+      <Project>{F2F9603C-683E-3878-A958-61C9C6AB7EA5}</Project>
+      <Name>SlotClient</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Demigiant\DOTween\Examples\Basics.cs" />
-    <Compile Include="Assets\Demigiant\DOTween\Examples\Sequences.cs" />
-    <Compile Include="Assets\Scripts\Client\AppUtility.cs" />
-    <Compile Include="Assets\Scripts\Client\ApplicationMgr.cs" />
-    <Compile Include="Assets\Scripts\Client\Audio\AudioMgr.cs" />
-    <Compile Include="Assets\Scripts\Client\DAL\PayLineDAL.cs" />
-    <Compile Include="Assets\Scripts\Client\DAL\SymbolDAL.cs" />
-    <Compile Include="Assets\Scripts\Client\Effect\EffectBase.cs" />
-    <Compile Include="Assets\Scripts\Client\Effect\EffectFade.cs" />
-    <Compile Include="Assets\Scripts\Client\Model\PayLineData.cs" />
-    <Compile Include="Assets\Scripts\Client\Model\SymbolData.cs" />
-    <Compile Include="Assets\Scripts\Client\StateMgr.cs" />
-    <Compile Include="Assets\Scripts\Client\StrDef.cs" />
-    <Compile Include="Assets\Scripts\Client\UI\MainMenu\MainMenuController.cs" />
-    <Compile Include="Assets\Scripts\Client\UI\MainMenu\MainMenuModel.cs" />
-    <Compile Include="Assets\Scripts\Client\UI\MainMenu\MainMenuViewPresenters.cs" />
-    <Compile Include="Assets\Scripts\Client\UI\PayLine\PayLineController.cs" />
-    <Compile Include="Assets\Scripts\Client\UI\PayLine\PayLineModel.cs" />
-    <Compile Include="Assets\Scripts\Client\UI\PayLine\PayLineViewPresenters.cs" />
-    <Compile Include="Assets\Scripts\Client\UI\Symbol\Reel.cs" />
-    <Compile Include="Assets\Scripts\Client\UI\Symbol\SymbolController.cs" />
-    <Compile Include="Assets\Scripts\Client\UI\Symbol\SymbolInstance.cs" />
-    <Compile Include="Assets\Scripts\Client\UI\Symbol\SymbolModel.cs" />
-    <Compile Include="Assets\Scripts\Client\UI\Symbol\SymbolViewPresenters.cs" />
-    <Compile Include="Assets\Scripts\Client\UI\Template\TemplateController.cs" />
-    <Compile Include="Assets\Scripts\Client\UI\Template\TemplateModel.cs" />
-    <Compile Include="Assets\Scripts\Client\UI\Template\TemplateViewPresenters.cs" />
-    <Compile Include="Assets\Scripts\Foundation\Controller.cs" />
-    <Compile Include="Assets\Scripts\Foundation\Event\InputEventDef.cs" />
-    <Compile Include="Assets\Scripts\Foundation\Event\LayerID.cs" />
-    <Compile Include="Assets\Scripts\Foundation\Event\UIEventListen.cs" />
-    <Compile Include="Assets\Scripts\Foundation\Model.cs" />
-    <Compile Include="Assets\Scripts\Foundation\Resource\AssetLoadMgr.cs" />
-    <Compile Include="Assets\Scripts\Foundation\Singleton.cs" />
-    <Compile Include="Assets\Scripts\Foundation\SingletonTemp.cs" />
-    <Compile Include="Assets\Scripts\Foundation\SingletonWithComponent.cs" />
-    <Compile Include="Assets\Scripts\Foundation\SingletonWithComponentTemp.cs" />
-    <Compile Include="Assets\Scripts\Foundation\UI\ModelMgr.cs" />
-    <Compile Include="Assets\Scripts\Foundation\UI\UIComponentExt.cs" />
-    <Compile Include="Assets\Scripts\Foundation\UI\UIMgr.cs" />
-    <Compile Include="Assets\Scripts\Foundation\UI\ViewConfig.cs" />
-    <Compile Include="Assets\Scripts\Foundation\Utils\CloneUtils.cs" />
-    <Compile Include="Assets\Scripts\Foundation\Utils\ColorUtils.cs" />
-    <Compile Include="Assets\Scripts\Foundation\Utils\EnumUtils.cs" />
-    <Compile Include="Assets\Scripts\Foundation\Utils\FileUtils.cs" />
-    <Compile Include="Assets\Scripts\Foundation\Utils\Sequence.cs" />
-    <Compile Include="Assets\Scripts\Foundation\Utils\StringUtils.cs" />
-    <Compile Include="Assets\Scripts\Foundation\ViewPresenters.cs" />
-    <Compile Include="Assets\Test\Test.cs" />
-    <Compile Include="Assets\Test\Test1.cs" />
-    <Compile Include="Assets\Test\Test_SingletonWithComponent.cs" />
+    <Compile Include="Assets\Plugins\Editor\DarkTonic\MasterAudio\AudioEventInspector.cs" />
+    <Compile Include="Assets\Plugins\Editor\DarkTonic\MasterAudio\AudioScriptOrderManager.cs" />
+    <Compile Include="Assets\Plugins\Editor\DarkTonic\MasterAudio\AudioUndoHelper.cs" />
+    <Compile Include="Assets\Plugins\Editor\DarkTonic\MasterAudio\ButtonClickerInspector.cs" />
+    <Compile Include="Assets\Plugins\Editor\DarkTonic\MasterAudio\DTGUIHelper.cs" />
+    <Compile Include="Assets\Plugins\Editor\DarkTonic\MasterAudio\DynamicGroupVariationInspector.cs" />
+    <Compile Include="Assets\Plugins\Editor\DarkTonic\MasterAudio\DynamicSoundGroupCreatorInspector.cs" />
+    <Compile Include="Assets\Plugins\Editor\DarkTonic\MasterAudio\DynamicSoundGroupInspector.cs" />
+    <Compile Include="Assets\Plugins\Editor\DarkTonic\MasterAudio\FootstepsSoundsInspector.cs" />
+    <Compile Include="Assets\Plugins\Editor\DarkTonic\MasterAudio\MasterAudioClipManager.cs" />
+    <Compile Include="Assets\Plugins\Editor\DarkTonic\MasterAudio\MasterAudioGroupInspector.cs" />
+    <Compile Include="Assets\Plugins\Editor\DarkTonic\MasterAudio\MasterAudioHierIcon.cs" />
+    <Compile Include="Assets\Plugins\Editor\DarkTonic\MasterAudio\MasterAudioInspector.cs" />
+    <Compile Include="Assets\Plugins\Editor\DarkTonic\MasterAudio\MasterAudioInspectorResources.cs" />
+    <Compile Include="Assets\Plugins\Editor\DarkTonic\MasterAudio\MasterAudioManager.cs" />
+    <Compile Include="Assets\Plugins\Editor\DarkTonic\MasterAudio\MasterAudioSoundUpgrader.cs" />
+    <Compile Include="Assets\Plugins\Editor\DarkTonic\MasterAudio\MasterCustomEventPropertyDrawer.cs" />
+    <Compile Include="Assets\Plugins\Editor\DarkTonic\MasterAudio\PersistChanges\MAComponentPatch.cs" />
+    <Compile Include="Assets\Plugins\Editor\DarkTonic\MasterAudio\PersistChanges\MAGOSetting.cs" />
+    <Compile Include="Assets\Plugins\Editor\DarkTonic\MasterAudio\PersistChanges\MAObjectContext.cs" />
+    <Compile Include="Assets\Plugins\Editor\DarkTonic\MasterAudio\PlaylistControllerInspector.cs" />
+    <Compile Include="Assets\Plugins\Editor\DarkTonic\MasterAudio\SoundGroupOrganizerInspector.cs" />
+    <Compile Include="Assets\Plugins\Editor\DarkTonic\MasterAudio\SoundGroupPropertyDrawer.cs" />
+    <Compile Include="Assets\Plugins\Editor\DarkTonic\MasterAudio\SoundGroupVariationInspector.cs" />
+    <Compile Include="Assets\Plugins\Editor\RelationsInspector\BackendUtils\BackendUtil.cs" />
+    <Compile Include="Assets\Plugins\Editor\RelationsInspector\BackendUtils\DrawUtil.cs" />
+    <Compile Include="Assets\Plugins\Editor\RelationsInspector\BackendUtils\MinimalBackend.cs" />
+    <Compile Include="Assets\Plugins\Editor\RelationsInspector\BackendUtils\ScriptableObjectBackend.cs" />
+    <Compile Include="Assets\Plugins\Editor\RelationsInspector\BackendUtils\ScriptableObjectBackendToolbar.cs" />
+    <Compile Include="Assets\Plugins\Editor\RelationsInspector\Backends\AutoBackend\RIAutoBackend.cs" />
+    <Compile Include="Assets\Plugins\Editor\RelationsInspector\Backends\AutoBackend\ReflectionUtil.cs" />
+    <Compile Include="Assets\Plugins\Editor\RelationsInspector\Backends\HierarchyExample\SceneHierarchyBackend.cs" />
+    <Compile Include="Assets\Plugins\Editor\RelationsInspector\Backends\HierarchyExample\TagBackend.cs" />
+    <Compile Include="Assets\Plugins\Editor\RelationsInspector\Backends\MasterAudioEventBackend.cs" />
+    <Compile Include="Assets\Plugins\Editor\RelationsInspector\Backends\SocialNetworkExample\Person.cs" />
+    <Compile Include="Assets\Plugins\Editor\RelationsInspector\Backends\SocialNetworkExample\SocialNetworkBackend.cs" />
+    <Compile Include="Assets\Plugins\Editor\RelationsInspector\Backends\SocialNetworkExample\StudyNetworkBackend.cs" />
+    <Compile Include="Assets\Plugins\Editor\RelationsInspector\Backends\TypeGraphExample\TypeInheritanceBackend.cs" />
+    <Compile Include="Assets\Plugins\Editor\RelationsInspector\Backends\TypeGraphExample\TypeUtility.cs" />
+    <Compile Include="Assets\Plugins\Editor\RelationsInspector\RelationsInspectorLink.cs" />
+    <Compile Include="Assets\Plugins\Editor\RelationsInspector\RelationsInspectorMenuItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Demigiant\DOTween\DOTween.XML" />
