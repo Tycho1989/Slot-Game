@@ -56,7 +56,7 @@ public class AssetLoadMgr : SingletonWithComponent<AssetLoadMgr>
 	/// <summary>
 	/// 在本地Recource文件夹，获取预设体
 	/// </summary>
-	public T LoadNativePrefab<T>(string path) where T: UnityEngine.Object
+	public T LoadNativeAsset<T>(string path) where T: UnityEngine.Object
 	{
 		T asset = Resources.Load(path, typeof(T)) as T;
 		return asset;
@@ -65,9 +65,9 @@ public class AssetLoadMgr : SingletonWithComponent<AssetLoadMgr>
 	/// <summary>
 	/// 在本地Recource文件夹,在Game中生成实例
 	/// </summary>
-	public T LoadNativeAsset<T>(string path) where T : UnityEngine.Object
+	public T LoadNativeAssetInst<T>(string path) where T : UnityEngine.Object
 	{
-		T asset = Instantiate(LoadNativePrefab<T>(path)) as T;
+		T asset = Instantiate(LoadNativeAsset<T>(path)) as T;
 		return asset;
 	}
 

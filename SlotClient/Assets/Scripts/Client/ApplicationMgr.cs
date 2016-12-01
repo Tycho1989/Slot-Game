@@ -87,20 +87,20 @@ public class ApplicationMgr : SingletonWithComponent<ApplicationMgr>
         GameObject uiMgrObj = new GameObject(typeof(UIMgr).Name);
 		uiMgrObj.AddComponent<UIMgr>();
 
-		//GameObject modelMgrObj = new GameObject(typeof(ModelMgr).Name);
-		//modelMgrObj.AddComponent<ModelMgr>();
+        //GameObject modelMgrObj = new GameObject(typeof(ModelMgr).Name);
+        //modelMgrObj.AddComponent<ModelMgr>();
 
-		//GameObject audioMgrObj = new GameObject(typeof(AudioMgr).Name);
-		//audioMgrObj.AddComponent<AudioMgr>();
+        GameObject audioMgrObj = new GameObject(typeof(AudioMgr).Name);
+        audioMgrObj.AddComponent<AudioMgr>();
 
-		//GameObject mouseEventMgrObj = new GameObject(typeof(MouseEventMgr).Name);
-		//mouseEventMgrObj.AddComponent<MouseEventMgr>();
+        //GameObject mouseEventMgrObj = new GameObject(typeof(MouseEventMgr).Name);
+        //mouseEventMgrObj.AddComponent<MouseEventMgr>();
 
-		//GameObject keyBoardEventMgrObj = new GameObject(typeof(KeyBoardEventMgr).Name);
-		//keyBoardEventMgrObj.AddComponent<KeyBoardEventMgr>();
+        //GameObject keyBoardEventMgrObj = new GameObject(typeof(KeyBoardEventMgr).Name);
+        //keyBoardEventMgrObj.AddComponent<KeyBoardEventMgr>();
 
-		
-	}
+
+    }
 
 	/// <summary>
 	/// 得到版本模式
