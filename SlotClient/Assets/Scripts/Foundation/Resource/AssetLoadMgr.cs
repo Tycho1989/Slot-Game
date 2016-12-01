@@ -58,8 +58,17 @@ public class AssetLoadMgr : SingletonWithComponent<AssetLoadMgr>
 	/// </summary>
 	public T LoadNativeAsset<T>(string path) where T: UnityEngine.Object
 	{
-		T asset = Resources.Load(path, typeof(T)) as T;
-		return asset;
+	    if (string.IsNullOrEmpty(path))
+	    {
+            Debug.LogWarning(string.Format("the Asset {0} in Resources folder is not existed", path));
+            return null;
+	    }
+        T asset = Resources.Load(path, typeof(T)) as T;
+	    if (null == asset)
+	    {
+            Debug.LogWarning(string.Format("the Asset {0} in Resources folder is not existed", path));
+        }
+        return asset;
 	}
 
 	/// <summary>

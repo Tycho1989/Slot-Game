@@ -32,4 +32,9 @@ public static class StrDef
     public const string PATH_PAYLINETEXTURE = "UI/PayLineView/PayLineImage";
     public const string PATH_PAYLINEMATERIAL = "UI/PayLineView/PayLineMaterial";
 
+    public const string PATH_AUDIOBGM = "Audio/BGM";//背景音乐
+    public const string PATH_AUDIOSFX = "Audio/SFX";//特效音乐
+
+
+
 }

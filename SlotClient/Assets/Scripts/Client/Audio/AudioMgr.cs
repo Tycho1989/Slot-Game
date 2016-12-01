@@ -14,6 +14,8 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using DarkTonic.MasterAudio;
+
 
 /// <summary>
 /// 文件名:音频管理器
@@ -21,81 +23,72 @@ using System.Collections.Generic;
 /// </summary>
 public class AudioMgr : SingletonWithComponent<AudioMgr>
 {
-    private AudioSource audioSource;
-    private Dictionary<string, AudioClip> dicAudioClip = new Dictionary<string,AudioClip>();
+    private MasterAudio masterAudio;
+    private Dictionary<string, AudioClip> dicAudioClip = new Dictionary<string, AudioClip>();
 
     /// <summary>
     /// 初始化
     /// </summary>
     protected override void InitPre()
-	{
-	    if (this.gameObject.GetComponent<AudioSource>())
-	    {
-	        audioSource = this.gameObject.AddComponent<AudioSource>();
-	    }
-	    else
-	    {
-	        {
-                audioSource = this.gameObject.GetComponent<AudioSource>();
-            }
-        }
-
-        AudioClip Beep = AssetLoadMgr.Instance.LoadNativeAsset<AudioClip>("Beep (UI_Electric_01)");
+    {
+        var Beep = AssetLoadMgr.Instance.LoadNativeAsset<AudioClip>(string.Format("{0}/{1}", StrDef.PATH_AUDIOSFX,"Beep (UI_Electric_01)"));
         dicAudioClip.Add(Beep.name, Beep);
 
-        AudioClip Bet = AssetLoadMgr.Instance.LoadNativeAsset<AudioClip>("Bet (Collect_Point_00)");
+        var Bet = AssetLoadMgr.Instance.LoadNativeAsset<AudioClip>(string.Format("{0}/{1}", StrDef.PATH_AUDIOSFX,"Bet (Collect_Point_00)"));
         dicAudioClip.Add(Bet.name, Bet);
 
-        AudioClip BGM = AssetLoadMgr.Instance.LoadNativeAsset<AudioClip>("BGM (Colorful_Vacation)");
+        var BGM = AssetLoadMgr.Instance.LoadNativeAsset<AudioClip>(string.Format("{0}/{1}", StrDef.PATH_AUDIOBGM, "BGM (Colorful_Vacation)"));
         dicAudioClip.Add(BGM.name, BGM);
 
-        AudioClip Bonus = AssetLoadMgr.Instance.LoadNativeAsset<AudioClip>("Bonus (Jingle_Win_00)");
+        var Bonus = AssetLoadMgr.Instance.LoadNativeAsset<AudioClip>(string.Format("{0}/{1}", StrDef.PATH_AUDIOSFX,"Bonus (Jingle_Win_00)"));
         dicAudioClip.Add(Bonus.name, Bonus);
 
-        AudioClip Click = AssetLoadMgr.Instance.LoadNativeAsset<AudioClip>("Click (Click_Standard_02)");
+        var Click = AssetLoadMgr.Instance.LoadNativeAsset<AudioClip>(string.Format("{0}/{1}", StrDef.PATH_AUDIOSFX,"Click (Click_Standard_02)"));
         dicAudioClip.Add(Click.name, Click);
 
-        AudioClip EarnBig = AssetLoadMgr.Instance.LoadNativeAsset<AudioClip>("Earn Big (Coins_Pouring_10)");
+        var EarnBig = AssetLoadMgr.Instance.LoadNativeAsset<AudioClip>(string.Format("{0}/{1}", StrDef.PATH_AUDIOSFX,"Earn Big (Coins_Pouring_10)"));
         dicAudioClip.Add(EarnBig.name, EarnBig);
 
-        AudioClip EarnSmall = AssetLoadMgr.Instance.LoadNativeAsset<AudioClip>("Earn Small (Coins_Several_10)");
+        var EarnSmall = AssetLoadMgr.Instance.LoadNativeAsset<AudioClip>(string.Format("{0}/{1}", StrDef.PATH_AUDIOSFX,"Earn Small (Coins_Several_10)"));
         dicAudioClip.Add(EarnSmall.name, EarnSmall);
 
-        AudioClip Impact = AssetLoadMgr.Instance.LoadNativeAsset<AudioClip>("Impact (Click_Heavy_00)");
+        var Impact = AssetLoadMgr.Instance.LoadNativeAsset<AudioClip>(string.Format("{0}/{1}", StrDef.PATH_AUDIOSFX,"Impact (Click_Heavy_00)"));
         dicAudioClip.Add(Impact.name, Impact);
 
-        AudioClip Intro = AssetLoadMgr.Instance.LoadNativeAsset<AudioClip>("Intro (320887__rhodesmas__win-04)");
+        var Intro = AssetLoadMgr.Instance.LoadNativeAsset<AudioClip>(string.Format("{0}/{1}", StrDef.PATH_AUDIOSFX,"Intro (320887__rhodesmas__win-04)"));
         dicAudioClip.Add(Intro.name, Intro);
 
-        AudioClip Lose = AssetLoadMgr.Instance.LoadNativeAsset<AudioClip>("Lose (42113__wildweasel__ksmarch-chairsqueakright)");
+        var Lose = AssetLoadMgr.Instance.LoadNativeAsset<AudioClip>(string.Format("{0}/{1}", StrDef.PATH_AUDIOSFX,"Lose (42113__wildweasel__ksmarch-chairsqueakright)"));
         dicAudioClip.Add(Lose.name, Lose);
 
-        AudioClip Pay = AssetLoadMgr.Instance.LoadNativeAsset<AudioClip>("Pay (209578__zott820__cash-register-purchase)");
+        var Pay = AssetLoadMgr.Instance.LoadNativeAsset<AudioClip>(string.Format("{0}/{1}", StrDef.PATH_AUDIOSFX,"Pay (209578__zott820__cash-register-purchase)"));
         dicAudioClip.Add(Pay.name, Pay);
 
-        AudioClip ReelStop = AssetLoadMgr.Instance.LoadNativeAsset<AudioClip>("Reel Stop (332629__treasuresounds__item-pickup)");
+        var ReelStop = AssetLoadMgr.Instance.LoadNativeAsset<AudioClip>(string.Format("{0}/{1}", StrDef.PATH_AUDIOSFX,"Reel Stop (332629__treasuresounds__item-pickup)"));
         dicAudioClip.Add(ReelStop.name, ReelStop);
 
-        AudioClip Spin = AssetLoadMgr.Instance.LoadNativeAsset<AudioClip>("Spin (178416__motion-s__toaster-pop)");
+        var Spin = AssetLoadMgr.Instance.LoadNativeAsset<AudioClip>(string.Format("{0}/{1}", StrDef.PATH_AUDIOSFX,"Spin (178416__motion-s__toaster-pop)"));
         dicAudioClip.Add(Spin.name, Spin);
 
-        AudioClip SpinBonus = AssetLoadMgr.Instance.LoadNativeAsset<AudioClip>("Spin Bonus (Climb_Rope_Loop_00)");
+        var SpinBonus = AssetLoadMgr.Instance.LoadNativeAsset<AudioClip>(string.Format("{0}/{1}", StrDef.PATH_AUDIOSFX,"Spin Bonus (Climb_Rope_Loop_00)"));
         dicAudioClip.Add(SpinBonus.name, SpinBonus);
 
-        AudioClip SpinLoop = AssetLoadMgr.Instance.LoadNativeAsset<AudioClip>("Spin Loop (16031__hookhead__toycarwheels)");
+        var SpinLoop = AssetLoadMgr.Instance.LoadNativeAsset<AudioClip>(string.Format("{0}/{1}", StrDef.PATH_AUDIOSFX,"Spin Loop (16031__hookhead__toycarwheels)"));
         dicAudioClip.Add(SpinLoop.name, SpinLoop);
 
-        AudioClip WinBig = AssetLoadMgr.Instance.LoadNativeAsset<AudioClip>("Win Big (Jingle_Win_00)");
+        var WinBig = AssetLoadMgr.Instance.LoadNativeAsset<AudioClip>(string.Format("{0}/{1}", StrDef.PATH_AUDIOSFX,"Win Big (Jingle_Win_00)"));
         dicAudioClip.Add(WinBig.name, WinBig);
 
-        AudioClip WinMedium = AssetLoadMgr.Instance.LoadNativeAsset<AudioClip>("Win Medium (Jingle_Win_Synth_00)");
+        var WinMedium = AssetLoadMgr.Instance.LoadNativeAsset<AudioClip>(string.Format("{0}/{1}", StrDef.PATH_AUDIOSFX,"Win Medium (Jingle_Win_Synth_00)"));
         dicAudioClip.Add(WinMedium.name, WinMedium);
 
-        AudioClip Winsmall = AssetLoadMgr.Instance.LoadNativeAsset<AudioClip>("Win small (UI_Synth_01)");
+        var Winsmall = AssetLoadMgr.Instance.LoadNativeAsset<AudioClip>(string.Format("{0}/{1}", StrDef.PATH_AUDIOSFX,"Win small (UI_Synth_01)"));
         dicAudioClip.Add(Winsmall.name, Winsmall);
 
-        AudioClip WinSpecial = AssetLoadMgr.Instance.LoadNativeAsset<AudioClip>("Win Special (Jingle_Achievement_00)");
+        var WinSpecial = AssetLoadMgr.Instance.LoadNativeAsset<AudioClip>(string.Format("{0}/{1}", StrDef.PATH_AUDIOSFX,"Win Special (Jingle_Achievement_00)"));
         dicAudioClip.Add(WinSpecial.name, WinSpecial);
+
+        InitMasterAudio();
 
     }
 
@@ -103,24 +96,80 @@ public class AudioMgr : SingletonWithComponent<AudioMgr>
     /// 后初始化
     /// </summary>
     protected override void InitPost()
-	{
+    {
 
-	}
+    }
 
-	/// <summary>
-	/// 清理（多次）
-	/// </summary>
-	protected override void Clear()
-	{
+    /// <summary>
+    /// 清理（多次）
+    /// </summary>
+    protected override void Clear()
+    {
 
-	}
+    }
 
-	/// <summary>
-	/// 结束（一次）
-	/// </summary>
-	protected override void Finish()
-	{
+    /// <summary>
+    /// 结束（一次）
+    /// </summary>
+    protected override void Finish()
+    {
 
-	}
+    }
 
+    /// <summary>
+    /// 初始化MasterAudio组件
+    /// </summary>
+    private void InitMasterAudio()
+    {
+        GameObject audioListener = new GameObject("AudioListener");
+        audioListener.AddComponent<AudioListener>();
+        audioListener.transform.SetParent(this.gameObject.transform);
+
+        GameObject masterAudioObj =
+            AssetLoadMgr.Instance.LoadNativeAssetInst<GameObject>(string.Format("{0}/{1}", "MasterAudio", "MasterAudio"));
+        masterAudioObj.name = "MasterAudio";
+        //避免场景切换时被销毁
+        DontDestroyOnLoad(masterAudioObj);
+
+        if (null == masterAudioObj.GetComponent<MasterAudio>())
+        {
+            masterAudio = masterAudioObj.AddComponent<MasterAudio>();
+        }
+        else
+        {
+            {
+                masterAudio = masterAudioObj.GetComponent<MasterAudio>();
+            }
+        }
+
+        this.CreatePlaylistController("BMG");
+        if (dicAudioClip.ContainsKey("BGM (Colorful_Vacation)"))
+        {
+            this.AddSongToPlaylist("BMG", dicAudioClip["BGM (Colorful_Vacation)"]);
+        }
+
+    }
+
+    /// <summary>
+    /// 播放控制器
+    /// </summary>
+    /// <param name="name"></param>
+    private void CreatePlaylistController(string name)
+    {
+        GameObject playlistControllerObj = MasterAudio.CreatePlaylistController();
+        PlaylistController playlistController = playlistControllerObj.GetComponent<PlaylistController>();
+        //PlaylistController.transform.SetParent(this.gameObject.transform);
+        playlistControllerObj.name = name;
+        DontDestroyOnLoad(playlistControllerObj);
+        playlistController.startPlaylistName = name;
+
+        MasterAudio.Playlist playlist = new MasterAudio.Playlist();
+        masterAudio.musicPlaylists.Add(playlist);
+        playlist.playlistName = name;
+    }
+
+    private void AddSongToPlaylist(string playlistName, AudioClip song)
+    {
+        MasterAudio.AddSongToPlaylist(playlistName, song, true);
+    }
 }
