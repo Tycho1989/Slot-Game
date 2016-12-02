@@ -31,14 +31,14 @@ public class AudioMgr : SingletonWithComponent<AudioMgr>
     /// </summary>
     protected override void InitPre()
     {
+        var BGM = AssetLoadMgr.Instance.LoadNativeAsset<AudioClip>(string.Format("{0}/{1}", StrDef.PATH_AUDIOBGM, "BGM (Colorful_Vacation)"));
+        dicAudioClip.Add(BGM.name, BGM);
+
         var Beep = AssetLoadMgr.Instance.LoadNativeAsset<AudioClip>(string.Format("{0}/{1}", StrDef.PATH_AUDIOSFX,"Beep (UI_Electric_01)"));
         dicAudioClip.Add(Beep.name, Beep);
 
         var Bet = AssetLoadMgr.Instance.LoadNativeAsset<AudioClip>(string.Format("{0}/{1}", StrDef.PATH_AUDIOSFX,"Bet (Collect_Point_00)"));
         dicAudioClip.Add(Bet.name, Bet);
-
-        var BGM = AssetLoadMgr.Instance.LoadNativeAsset<AudioClip>(string.Format("{0}/{1}", StrDef.PATH_AUDIOBGM, "BGM (Colorful_Vacation)"));
-        dicAudioClip.Add(BGM.name, BGM);
 
         var Bonus = AssetLoadMgr.Instance.LoadNativeAsset<AudioClip>(string.Format("{0}/{1}", StrDef.PATH_AUDIOSFX,"Bonus (Jingle_Win_00)"));
         dicAudioClip.Add(Bonus.name, Bonus);
@@ -142,10 +142,16 @@ public class AudioMgr : SingletonWithComponent<AudioMgr>
             }
         }
 
-        this.CreatePlaylistController("BMG");
+        this.CreatePlaylistController("PlaylistControllerBMG");
         if (dicAudioClip.ContainsKey("BGM (Colorful_Vacation)"))
         {
-            this.AddSongToPlaylist("BMG", dicAudioClip["BGM (Colorful_Vacation)"]);
+            this.AddSongToPlaylist("PlaylistControllerBMG", dicAudioClip["BGM (Colorful_Vacation)"]);
+        }
+
+        this.CreatePlaylistController("PlaylistControllerCLICK");
+        if (dicAudioClip.ContainsKey("BGM (Colorful_Vacation)"))
+        {
+            this.AddSongToPlaylist("PlaylistControllerCLICK", dicAudioClip["BGM (Colorful_Vacation)"]);
         }
 
     }
