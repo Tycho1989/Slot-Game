@@ -112,14 +112,14 @@
     <Reference Include="DOTweenEditor">
       <HintPath>Assets\Demigiant\DOTween\Editor\DOTweenEditor.dll</HintPath>
     </Reference>
+    <Reference Include="RelationsInspector">
+      <HintPath>Assets\Plugins\Editor\RelationsInspector\RelationsInspector.dll</HintPath>
+    </Reference>
     <Reference Include="Vectrosity">
       <HintPath>Assets\Plugins\Vectrosity\Vectrosity.dll</HintPath>
     </Reference>
     <Reference Include="VectrosityEditor">
       <HintPath>Assets\Plugins\Vectrosity\Editor\VectrosityEditor.dll</HintPath>
-    </Reference>
-    <Reference Include="RelationsInspector">
-      <HintPath>Assets\Plugins\Editor\RelationsInspector\RelationsInspector.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -133,30 +133,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Plugins\Editor\DarkTonic\MasterAudio\AudioEventInspector.cs" />
-    <Compile Include="Assets\Plugins\Editor\DarkTonic\MasterAudio\AudioScriptOrderManager.cs" />
-    <Compile Include="Assets\Plugins\Editor\DarkTonic\MasterAudio\AudioUndoHelper.cs" />
-    <Compile Include="Assets\Plugins\Editor\DarkTonic\MasterAudio\ButtonClickerInspector.cs" />
-    <Compile Include="Assets\Plugins\Editor\DarkTonic\MasterAudio\DTGUIHelper.cs" />
-    <Compile Include="Assets\Plugins\Editor\DarkTonic\MasterAudio\DynamicGroupVariationInspector.cs" />
-    <Compile Include="Assets\Plugins\Editor\DarkTonic\MasterAudio\DynamicSoundGroupCreatorInspector.cs" />
-    <Compile Include="Assets\Plugins\Editor\DarkTonic\MasterAudio\DynamicSoundGroupInspector.cs" />
-    <Compile Include="Assets\Plugins\Editor\DarkTonic\MasterAudio\FootstepsSoundsInspector.cs" />
-    <Compile Include="Assets\Plugins\Editor\DarkTonic\MasterAudio\MasterAudioClipManager.cs" />
-    <Compile Include="Assets\Plugins\Editor\DarkTonic\MasterAudio\MasterAudioGroupInspector.cs" />
-    <Compile Include="Assets\Plugins\Editor\DarkTonic\MasterAudio\MasterAudioHierIcon.cs" />
-    <Compile Include="Assets\Plugins\Editor\DarkTonic\MasterAudio\MasterAudioInspector.cs" />
-    <Compile Include="Assets\Plugins\Editor\DarkTonic\MasterAudio\MasterAudioInspectorResources.cs" />
-    <Compile Include="Assets\Plugins\Editor\DarkTonic\MasterAudio\MasterAudioManager.cs" />
-    <Compile Include="Assets\Plugins\Editor\DarkTonic\MasterAudio\MasterAudioSoundUpgrader.cs" />
-    <Compile Include="Assets\Plugins\Editor\DarkTonic\MasterAudio\MasterCustomEventPropertyDrawer.cs" />
-    <Compile Include="Assets\Plugins\Editor\DarkTonic\MasterAudio\PersistChanges\MAComponentPatch.cs" />
-    <Compile Include="Assets\Plugins\Editor\DarkTonic\MasterAudio\PersistChanges\MAGOSetting.cs" />
-    <Compile Include="Assets\Plugins\Editor\DarkTonic\MasterAudio\PersistChanges\MAObjectContext.cs" />
-    <Compile Include="Assets\Plugins\Editor\DarkTonic\MasterAudio\PlaylistControllerInspector.cs" />
-    <Compile Include="Assets\Plugins\Editor\DarkTonic\MasterAudio\SoundGroupOrganizerInspector.cs" />
-    <Compile Include="Assets\Plugins\Editor\DarkTonic\MasterAudio\SoundGroupPropertyDrawer.cs" />
-    <Compile Include="Assets\Plugins\Editor\DarkTonic\MasterAudio\SoundGroupVariationInspector.cs" />
     <Compile Include="Assets\Plugins\Editor\RelationsInspector\BackendUtils\BackendUtil.cs" />
     <Compile Include="Assets\Plugins\Editor\RelationsInspector\BackendUtils\DrawUtil.cs" />
     <Compile Include="Assets\Plugins\Editor\RelationsInspector\BackendUtils\MinimalBackend.cs" />
@@ -180,7 +156,6 @@
     <None Include="Assets\Demigiant\DOTween\DOTween50.xml" />
     <None Include="Assets\Demigiant\DOTween\Editor\DOTweenEditor.XML" />
     <None Include="Assets\Demigiant\DOTween\readme.txt" />
-    <None Include="Assets\Plugins\DarkTonic\MasterAudio\ReleaseNotes.txt" />
     <None Include="Assets\Plugins\Editor\RelationsInspector\README.txt" />
     <None Include="Assets\Plugins\Editor\RelationsInspector\changelog.txt" />
     <None Include="Assets\StreamingAssets\Config\PayLineConfig.xml" />

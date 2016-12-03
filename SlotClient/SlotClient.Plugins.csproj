@@ -78,56 +78,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\ExampleScenes\Scripts\MA_Bootstrapper.cs" />
-    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\ExampleScenes\Scripts\MA_DestroyFinishedParticle.cs" />
-    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\ExampleScenes\Scripts\MA_EnemyOne.cs" />
-    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\ExampleScenes\Scripts\MA_EnemySpawner.cs" />
-    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\ExampleScenes\Scripts\MA_GameScene.cs" />
-    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\ExampleScenes\Scripts\MA_Laser.cs" />
-    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\ExampleScenes\Scripts\MA_LocalizationUI.cs" />
-    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\ExampleScenes\Scripts\MA_PlayerControl.cs" />
-    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\ExampleScenes\Scripts\MA_PlayerSpawnerControl.cs" />
-    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\ExampleScenes\Scripts\MA_SampleICustomEventReceiver.cs" />
-    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\ExampleScenes\Scripts\MA_TestUI.cs" />
-    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\Scripts\Events\ButtonClicker.cs" />
-    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\Scripts\Events\EventSounds.cs" />
-    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\Scripts\Events\FootstepSounds.cs" />
-    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\Scripts\Events\MechanimStateCustomEvents.cs" />
-    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\Scripts\Events\MechanimStateSounds.cs" />
-    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\Scripts\ResultObjects\PlaySoundResult.cs" />
-    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\Scripts\Settings\AudioEvent.cs" />
-    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\Scripts\Settings\AudioEventGroup.cs" />
-    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\Scripts\Settings\AudioScriptOrder.cs" />
-    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\Scripts\Settings\BusFadeInfo.cs" />
-    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\Scripts\Settings\CustomEvent.cs" />
-    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\Scripts\Settings\DuckGroupInfo.cs" />
-    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\Scripts\Settings\DynamicGroupVariation.cs" />
-    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\Scripts\Settings\DynamicSoundGroup.cs" />
-    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\Scripts\Settings\FootstepGroup.cs" />
-    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\Scripts\Settings\GroupBus.cs" />
-    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\Scripts\Settings\GroupFadeInfo.cs" />
-    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\Scripts\Settings\ICustomEventReceiver.cs" />
-    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\Scripts\Settings\MasterAudioGroup.cs" />
-    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\Scripts\Settings\MasterAudioSettings.cs" />
-    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\Scripts\Settings\MasterCustomEventAttribute.cs" />
-    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\Scripts\Settings\MusicSetting.cs" />
-    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\Scripts\Settings\SoundGroupAttribute.cs" />
-    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\Scripts\Settings\SoundGroupVariation.cs" />
-    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\Scripts\Settings\SoundGroupVariationUpdater.cs" />
-    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\Scripts\Singleton\AudioPrioritizer.cs" />
-    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\Scripts\Singleton\AudioResourceOptimizer.cs" />
-    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\Scripts\Singleton\MasterAudio.cs" />
-    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\Scripts\Singleton\PersistentAudioSettings.cs" />
-    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\Scripts\Singleton\SingletonScriptable.cs" />
-    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\Scripts\Singleton\SoundGroupOrganizer.cs" />
-    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\Scripts\Utility\ArrayListUtil.cs" />
-    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\Scripts\Utility\AudioUtil.cs" />
-    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\Scripts\Utility\CoroutineHelper.cs" />
-    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\Scripts\Utility\DTMonoHelper.cs" />
-    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\Scripts\Utility\DelayBetweenSongs.cs" />
-    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\Scripts\Utility\DynamicSoundGroupCreator.cs" />
-    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\Scripts\Utility\PlaylistController.cs" />
-    <Compile Include="Assets\Plugins\DarkTonic\MasterAudio\Scripts\Utility\UtilStrings.cs" />
     <Compile Include="Assets\Plugins\RelationsInspector\AutoBackendAttributes.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -135,9 +85,6 @@
     <None Include="Assets\Demigiant\DOTween\DOTween50.xml" />
     <None Include="Assets\Demigiant\DOTween\Editor\DOTweenEditor.XML" />
     <None Include="Assets\Demigiant\DOTween\readme.txt" />
-    <None Include="Assets\Plugins\DarkTonic\MasterAudio\ReleaseNotes.txt" />
-    <None Include="Assets\Plugins\Editor\RelationsInspector\README.txt" />
-    <None Include="Assets\Plugins\Editor\RelationsInspector\changelog.txt" />
     <None Include="Assets\StreamingAssets\Config\PayLineConfig.xml" />
     <None Include="Assets\StreamingAssets\Config\SymbolConfig.xml" />
     <None Include="Assets\Vectrosity 5\Vectrosity 5 Documentation\Vectrosity changelog.txt" />
