@@ -34,7 +34,8 @@ public static class StrDef
 
     public const string PATH_AUDIOBGM = "Audio/BGM";//背景音乐
     public const string PATH_AUDIOSFX = "Audio/SFX";//特效音乐
+    public const string PLAYLISTCONTROLLER = "PlaylistController";//音乐播放器
 
-
+    
 
 }
