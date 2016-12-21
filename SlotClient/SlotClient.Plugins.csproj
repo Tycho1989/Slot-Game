@@ -85,6 +85,7 @@
     <None Include="Assets\Demigiant\DOTween\DOTween50.xml" />
     <None Include="Assets\Demigiant\DOTween\Editor\DOTweenEditor.XML" />
     <None Include="Assets\Demigiant\DOTween\readme.txt" />
+    <None Include="Assets\StrangeIoC\strange\extensions\ReadMe.txt" />
     <None Include="Assets\StreamingAssets\Config\PayLineConfig.xml" />
     <None Include="Assets\StreamingAssets\Config\SymbolConfig.xml" />
     <None Include="Assets\Vectrosity 5\Vectrosity 5 Documentation\Vectrosity changelog.txt" />
