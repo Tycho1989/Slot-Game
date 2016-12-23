@@ -93,6 +93,7 @@
     <Compile Include="Assets\Scripts\Client\DAL\SymbolDAL.cs" />
     <Compile Include="Assets\Scripts\Client\Effect\EffectBase.cs" />
     <Compile Include="Assets\Scripts\Client\Effect\EffectFade.cs" />
+    <Compile Include="Assets\Scripts\Client\LoginMgr.cs" />
     <Compile Include="Assets\Scripts\Client\Model\PayLineData.cs" />
     <Compile Include="Assets\Scripts\Client\Model\SymbolData.cs" />
     <Compile Include="Assets\Scripts\Client\StateMgr.cs" />
