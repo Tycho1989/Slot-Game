@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Setting>
   <Item0>
-    <ID>0</ID>
+    <ID>100101</ID>
     <instID></instID>
     <name>Wild</name>
     <symbolType>Wild</symbolType>
@@ -15,7 +15,7 @@
     </payFold>
   </Item0>
   <Item1>
-    <ID>1</ID>
+    <ID>100102</ID>
     <instID></instID>
     <name>Scatter</name>
     <symbolType>Scatter</symbolType>
@@ -29,7 +29,7 @@
     </payFold>
   </Item1>
   <Item2>
-    <ID>2</ID>
+    <ID>100103</ID>
     <instID></instID>
     <name>7</name>
     <symbolType>Normal</symbolType>
@@ -43,7 +43,7 @@
     </payFold>
   </Item2>
   <Item3>
-    <ID>3</ID>
+    <ID>100104</ID>
     <instID>A</instID>
     <name>Scatter</name>
     <symbolType>Normal</symbolType>
@@ -57,7 +57,7 @@
     </payFold>
   </Item3>
   <Item4>
-    <ID>4</ID>
+    <ID>100105</ID>
     <instID></instID>
     <name>BAR</name>
     <symbolType>Normal</symbolType>
@@ -71,7 +71,7 @@
     </payFold>
   </Item4>
   <Item5>
-    <ID>5</ID>
+    <ID>100106</ID>
     <instID></instID>
     <name>Cherry</name>
     <symbolType>Normal</symbolType>
@@ -85,7 +85,7 @@
     </payFold>
   </Item5>
   <Item6>
-    <ID>6</ID>
+    <ID>100107</ID>
     <instID></instID>
     <name>Gem</name>
     <symbolType>Normal</symbolType>
@@ -99,7 +99,7 @@
     </payFold>
   </Item6>
   <Item7>
-    <ID>7</ID>
+    <ID>100108</ID>
     <instID></instID>
     <name>J</name>
     <symbolType>Normal</symbolType>
@@ -113,7 +113,7 @@
     </payFold>
   </Item7>
   <Item8>
-    <ID>8</ID>
+    <ID>100109</ID>
     <instID></instID>
     <name>K</name>
     <symbolType>Normal</symbolType>
@@ -127,7 +127,7 @@
     </payFold>
   </Item8>
   <Item9>
-    <ID>9</ID>
+    <ID>100110</ID>
     <instID></instID>
     <name>Q</name>
     <symbolType>Normal</symbolType>
