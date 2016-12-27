@@ -13,6 +13,7 @@
 
 using System.Collections.Generic;
 using System.ComponentModel;
+using UnityEditorInternal;
 using UnityEngine;
 
 /// <summary>
@@ -43,12 +44,15 @@ public class StateMgr : Singleton<StateMgr>
     /// <summary>
     /// 当前状态
     /// </summary>
-    private EState _curState;
+    private EState curState;
     public EState CurState
     {
-        get { return _curState; }
-        private set { _curState = value; }
+        get { return curState; }
+        private set { curState = value; }
     }
+
+    //应用初始化标志
+    private bool isInitialized = false;
 
     private DelegateVoid EnterNotStarted;
     private DelegateVoid EnterIdle;
@@ -154,15 +158,17 @@ public class StateMgr : Singleton<StateMgr>
         switch(state)
         {
             case EState.NotStarted:
-                if (CurState == EState.NotStarted)
+                if (!isInitialized)
                 {
+                    CurState = EState.NotStarted;
                     Invoke(state);
+                    isInitialized = true;
                 }
                 break;
             case EState.Idle:
                 {
                     CurState = EState.Idle;
-                    //Invoke(state);
+                    Invoke(state);
                 }
                 break;
             case EState.SpinStarting:
