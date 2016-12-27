@@ -85,6 +85,8 @@ public class ApplicationMgr : SingletonWithComponent<ApplicationMgr>
         AudioMgr audioMgr = AudioMgr.Instance;
         EffectMgr effectMgr = EffectMgr.Instance;
 
+        PlayModeMgr playModeMgr = PlayModeMgr.Instance;
+
         
         //GameObject modelMgrObj = new GameObject(typeof(ModelMgr).Name);
         //modelMgrObj.AddComponent<ModelMgr>();

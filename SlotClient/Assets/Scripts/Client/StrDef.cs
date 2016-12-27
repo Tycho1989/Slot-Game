@@ -23,11 +23,14 @@ public static class StrDef
 	public const string VIEWDIR = "UI";              //视图资源文件目录
 	public const string VIEWCANVAS = "ViewCanvas";   //视图面板
 
-	public const string PATH_VIEWCONFIG = "Config/ViewConfig.ini";
+    public const string PATH_DEFAULTMODECONFIG = "Config/PlayMode/DefaultMode.ini";
+    public const string PATH_FREESPINMODECONFIG = "Config/PlayMode/FreeSpinMode.ini";
+    public const string PATH_BONUSMODECONFIG = "Config/PlayMode/BonusMode.ini";
+    public const string PATH_VIEWCONFIG = "Config/ViewConfig.ini";
 	public const string PATH_DEFAULT_UI_Material = "DefaultUIMaterial";
 
-	public const string PATH_SYMBOLCONFIG = "Config/SymbolConfig.xml";
-    public const string PATH_PAYLINECONFIG = "Config/PayLineConfig.xml";
+	public const string PATH_SYMBOLCONFIG = "Config/SymbolConfig.ini";
+    public const string PATH_PAYLINECONFIG = "Config/PayLineConfig.ini";
     public const string PATH_SYMBOLTEXTURE = "UI/SymbolView/Symbol";
     public const string PATH_PAYLINETEXTURE = "UI/PayLineView/PayLineImage";
     public const string PATH_PAYLINEMATERIAL = "UI/PayLineView/PayLineMaterial";
