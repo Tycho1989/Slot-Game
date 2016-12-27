@@ -51,10 +51,10 @@ public abstract class Singleton<T> where T : Singleton<T>, new()
 		Finish();
 	}
 
-	/// <summary>
-	/// 初始化
-	/// </summary>
-	protected abstract void Init();
+    /// <summary>
+    /// 初始化
+    /// </summary>
+    protected abstract void Init();
 
 	/// <summary>
 	/// 清理（多次）

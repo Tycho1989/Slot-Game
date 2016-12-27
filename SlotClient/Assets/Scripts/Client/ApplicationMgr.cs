@@ -47,10 +47,7 @@ public class ApplicationMgr : SingletonWithComponent<ApplicationMgr>
     protected override void InitPre()
 	{
 		this.InitializeAppMode();
-        StateMgr.Instance.AddEvent();
-        StateMgr.Instance.CurState = EState.NotStarted;
-        DOTween.Init(true, true, LogBehaviour.ErrorsOnly);
-        DOTween.defaultAutoKill = true;
+        this.InitMgr();
     }
 
     /// <summary>
@@ -58,7 +55,7 @@ public class ApplicationMgr : SingletonWithComponent<ApplicationMgr>
     /// </summary>
     protected override void InitPost()
 	{
-        this.InitMgr();
+        StateMgr.Instance.Enter(EState.NotStarted);
     }
 
     /// <summary>
@@ -82,23 +79,21 @@ public class ApplicationMgr : SingletonWithComponent<ApplicationMgr>
 	/// </summary>
 	private void InitMgr()
 	{
-        GameObject stateMgrObj = new GameObject(typeof(StateMgr).Name);
+        StateMgr stateMgr = StateMgr.Instance;
 
-        GameObject uiMgrObj = new GameObject(typeof(UIMgr).Name);
-		uiMgrObj.AddComponent<UIMgr>();
+        UIMgr uiMgr = UIMgr.Instance;
+        AudioMgr audioMgr = AudioMgr.Instance;
+        EffectMgr effectMgr = EffectMgr.Instance;
 
+        
         //GameObject modelMgrObj = new GameObject(typeof(ModelMgr).Name);
         //modelMgrObj.AddComponent<ModelMgr>();
-
-        GameObject audioMgrObj = new GameObject(typeof(AudioMgr).Name);
-        audioMgrObj.AddComponent<AudioMgr>();
 
         //GameObject mouseEventMgrObj = new GameObject(typeof(MouseEventMgr).Name);
         //mouseEventMgrObj.AddComponent<MouseEventMgr>();
 
         //GameObject keyBoardEventMgrObj = new GameObject(typeof(KeyBoardEventMgr).Name);
         //keyBoardEventMgrObj.AddComponent<KeyBoardEventMgr>();
-
 
     }
 

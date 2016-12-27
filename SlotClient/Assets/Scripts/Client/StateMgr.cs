@@ -12,6 +12,7 @@
 
 
 using System.Collections.Generic;
+using System.ComponentModel;
 using UnityEngine;
 
 /// <summary>
@@ -19,11 +20,17 @@ using UnityEngine;
 /// </summary>
 public enum EState
 {
+    [Description("准备阶段")]
     NotStarted,
+    [Description("准备完成阶段")]
     Idle,
+    [Description("旋转开始阶段")]
     SpinStarting,
+    [Description("旋转进行阶段")]
     Spinning,
+    [Description("旋转结束阶段")]
     SpinStopping,
+    [Description("统计阶段")]
     Result,
 }
 
@@ -36,7 +43,12 @@ public class StateMgr : Singleton<StateMgr>
     /// <summary>
     /// 当前状态
     /// </summary>
-    public EState CurState { get; set; }
+    private EState _curState;
+    public EState CurState
+    {
+        get { return _curState; }
+        private set { _curState = value; }
+    }
 
     private DelegateVoid EnterNotStarted;
     private DelegateVoid EnterIdle;
@@ -52,6 +64,7 @@ public class StateMgr : Singleton<StateMgr>
     protected override void Init()
     {
         CurState = EState.NotStarted;
+        this.AddEvent();
     }
 
     public void AddEvent()
@@ -130,6 +143,7 @@ public class StateMgr : Singleton<StateMgr>
         if(null == eventHandler)
         {
             Debug.Log(string.Format("The event [{0}] is null", state));
+            return;
         }
         eventHandler.Invoke();
     }
