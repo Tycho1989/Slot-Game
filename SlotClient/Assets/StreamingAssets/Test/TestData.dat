@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+  * * * * *
+  * * * * *
+  * * * * *
+  填入符号名字,逗号分隔,区分大小写
+-->
+<Setting>
+  <Item0>
+	<row1>K,BAR,K,A,A</row1>
+	<row2>A,A,A,BAR,BAR</row2>
+	<row3>K,BAR,K,A,A</row3>
+  </Item0>
+  <!-- <Item1> -->
+	<!-- <row1>K,BAR,K,A,A</row1> -->
+	<!-- <row2>Gem,Gem,Gem,Gem,BAR</row2> -->
+	<!-- <row3>K,BAR,K,A,A</row3> -->
+  <!-- </Item1> -->
+</Setting>
+
+
+

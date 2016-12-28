@@ -39,8 +39,6 @@ public static class StrDef
     public const string PATH_AUDIOSFX = "Audio/SFX";//特效音乐
     public const string PLAYLISTCONTROLLER = "PlaylistController";//音乐播放器
 
-    
-
-
+    public const string PATH_TESTDATA = "Test/TestData.dat";
 
 }

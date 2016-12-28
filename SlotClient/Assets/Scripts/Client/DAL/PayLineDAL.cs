@@ -1,10 +1,27 @@
-﻿using UnityEngine;
+﻿/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+* 文 件 名：PayLineDAL.cs
+* 版权所有：	
+* 文件编号：
+* 创 建 人：Tycho
+* 创建日期：2016-11-5
+* 修 改 人：
+* 修改日期：
+* 描	述：业务逻辑类
+* 版 本 号：1.0
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+
+using UnityEngine;
 using System.Collections;
 using System.Xml.Linq;
 using Slot.Utils;
 using System.Collections.Generic;
 using System;
 
+/// <summary>
+/// 文件名:赔付线数据访问层
+/// 说明:
+/// </summary>
 public class PayLineDAL 
 {
 	/// <summary>
@@ -38,7 +55,7 @@ public class PayLineDAL
 			}
 			catch (Exception ex)
 			{
-				Debug.LogWarning(string.Format("Parse the config file [PayLineConfig.xml] error"));
+				Debug.LogWarning(string.Format("Parse the config file [PayLineConfig.ini] error"));
 			}
 		}
 		return listLine;

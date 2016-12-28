@@ -1,0 +1,358 @@
+Initialize engine version: 5.4.3f1 (01f4c123905a)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce GT 730 (ID=0xf02)
+    Vendor:   NVIDIA
+    VRAM:     2000 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: D:\JustinSoftware\unityproject\Slot Game based PrueMVC\SlotClient\exe\2\slot_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading D:\JustinSoftware\unityproject\Slot Game based PrueMVC\SlotClient\exe\2\slot_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: D:\JustinSoftware\unityproject\Slot Game based PrueMVC\SlotClient\exe\2\slot_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
+Loading D:\JustinSoftware\unityproject\Slot Game based PrueMVC\SlotClient\exe\2\slot_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
+Platform assembly: D:\JustinSoftware\unityproject\Slot Game based PrueMVC\SlotClient\exe\2\slot_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading D:\JustinSoftware\unityproject\Slot Game based PrueMVC\SlotClient\exe\2\slot_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: D:\JustinSoftware\unityproject\Slot Game based PrueMVC\SlotClient\exe\2\slot_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading D:\JustinSoftware\unityproject\Slot Game based PrueMVC\SlotClient\exe\2\slot_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: D:\JustinSoftware\unityproject\Slot Game based PrueMVC\SlotClient\exe\2\slot_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading D:\JustinSoftware\unityproject\Slot Game based PrueMVC\SlotClient\exe\2\slot_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: D:\JustinSoftware\unityproject\Slot Game based PrueMVC\SlotClient\exe\2\slot_Data\Managed\DOTween.dll (this message is harmless)
+Loading D:\JustinSoftware\unityproject\Slot Game based PrueMVC\SlotClient\exe\2\slot_Data\Managed\DOTween.dll into Unity Child Domain
+Platform assembly: D:\JustinSoftware\unityproject\Slot Game based PrueMVC\SlotClient\exe\2\slot_Data\Managed\DOTween50.dll (this message is harmless)
+Loading D:\JustinSoftware\unityproject\Slot Game based PrueMVC\SlotClient\exe\2\slot_Data\Managed\DOTween50.dll into Unity Child Domain
+Platform assembly: D:\JustinSoftware\unityproject\Slot Game based PrueMVC\SlotClient\exe\2\slot_Data\Managed\Newtonsoft.Json.dll (this message is harmless)
+Loading D:\JustinSoftware\unityproject\Slot Game based PrueMVC\SlotClient\exe\2\slot_Data\Managed\Newtonsoft.Json.dll into Unity Child Domain
+Platform assembly: D:\JustinSoftware\unityproject\Slot Game based PrueMVC\SlotClient\exe\2\slot_Data\Managed\Vectrosity.dll (this message is harmless)
+Loading D:\JustinSoftware\unityproject\Slot Game based PrueMVC\SlotClient\exe\2\slot_Data\Managed\Vectrosity.dll into Unity Child Domain
+- Completed reload, in  0.052 seconds
+Platform assembly: D:\JustinSoftware\unityproject\Slot Game based PrueMVC\SlotClient\exe\2\slot_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: D:\JustinSoftware\unityproject\Slot Game based PrueMVC\SlotClient\exe\2\slot_Data\Managed\System.dll (this message is harmless)
+OnLevelWasLoaded was found on LineManager
+This message has been deprecated and will be removed in a later version of Unity.
+Add a delegate to SceneManager.sceneLoaded instead to get notifications after scene loading has completed
+ 
+(Filename:  Line: 375)
+
+desktop: 1920x1080 60Hz; virtual: 3286x1080 at -1366,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 1.064612 ms
+the Asset Audio/SFX/BGM SFX AudioMixer in Resources folder is not existed
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+ArgumentException: Encoding name 'gb2312' not supported
+Parameter name: name
+  at System.Text.Encoding.GetEncoding (System.String name) [0x00000] in <filename unknown>:0 
+  at Slot.Utils.FileUtils.ReadFile (System.String Path) [0x00000] in <filename unknown>:0 
+  at PlayModeMgr.Init () [0x00000] in <filename unknown>:0 
+  at Singleton`1[PlayModeMgr].get_Instance () [0x00000] in <filename unknown>:0 
+  at ApplicationMgr.InitMgr () [0x00000] in <filename unknown>:0 
+  at ApplicationMgr.InitPre () [0x00000] in <filename unknown>:0 
+  at SingletonWithComponent`1[T].Awake () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Platform assembly: D:\JustinSoftware\unityproject\Slot Game based PrueMVC\SlotClient\exe\2\slot_Data\Managed\System.Xml.Linq.dll (this message is harmless)
+Platform assembly: D:\JustinSoftware\unityproject\Slot Game based PrueMVC\SlotClient\exe\2\slot_Data\Managed\System.Xml.dll (this message is harmless)
+The event [Idle] is null
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Setting up 1 worker threads for Enlighten.
+  Thread -> id: 1530 -> priority: 1 
+Round [1],Line [1],chip [0].
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Round [1],Line [1],chip [0].
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Round [1],Line [1],chip [0].
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+The event [Idle] is null
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Round [2],Line [1],chip [0].
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Round [2],Line [1],chip [0].
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Round [2],Line [1],chip [0].
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Round [2],Line [1],chip [0].
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Round [2],Line [1],chip [0].
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+The event [Idle] is null
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Round [3],Line [1],chip [0].
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Round [3],Line [1],chip [0].
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Round [3],Line [1],chip [0].
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Round [3],Line [1],chip [0].
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Round [3],Line [1],chip [0].
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+The event [Idle] is null
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Round [4],Line [1],chip [0].
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Round [4],Line [1],chip [0].
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Round [4],Line [1],chip [0].
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Round [4],Line [1],chip [0].
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+The event [Idle] is null
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Round [5],Line [1],chip [0].
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Round [5],Line [1],chip [0].
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Round [5],Line [1],chip [0].
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Round [5],Line [1],chip [0].
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Round [5],Line [1],chip [0].
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+The event [Idle] is null
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Round [6],Line [1],chip [6.25].
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Round [6],Line [1],chip [0].
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Round [6],Line [1],chip [0].
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+The event [Idle] is null
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Round [7],Line [1],chip [0].
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Round [7],Line [1],chip [0].
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Round [7],Line [1],chip [0].
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Round [7],Line [1],chip [0].
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Round [7],Line [1],chip [0].
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+The event [Idle] is null
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Round [7],Line [2],chip [1600].
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Round [7],Line [2],chip [0].
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Round [7],Line [2],chip [0].
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Round [7],Line [2],chip [0].
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Round [7],Line [2],chip [0].
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Round [7],Line [2],chip [0].
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Round [7],Line [2],chip [0].
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+The event [Idle] is null
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Round [7],Line [3],chip [600].
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Round [7],Line [3],chip [0].
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Round [7],Line [3],chip [0].
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Round [7],Line [3],chip [80].
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Round [7],Line [3],chip [0].
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Round [7],Line [3],chip [0].
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Round [7],Line [3],chip [0].
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Round [7],Line [3],chip [0].
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+The event [Idle] is null
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Round [7],Line [4],chip [200].
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Round [7],Line [4],chip [0].
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Round [7],Line [4],chip [400].
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Round [7],Line [4],chip [300].
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Round [7],Line [4],chip [0].
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Round [7],Line [4],chip [0].
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Round [7],Line [4],chip [0].
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Round [7],Line [4],chip [0].
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+The event [Idle] is null
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Round [7],Line [5],chip [200].
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Round [7],Line [5],chip [2000].
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Round [7],Line [5],chip [400].
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+DOTWEEN :: An error inside a tween callback was silently taken care of > Argument is out of range.
+Parameter name: index
+
+  at System.Collections.Generic.List`1[System.Int32].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at PayLineController.CalculateChips () [0x00000] in <filename unknown>:0 
+  at StateMgr.Invoke (EState state) [0x00000] in <filename unknown>:0 
+  at StateMgr.Enter (EState state) [0x00000] in <filename unknown>:0 
+  at Reel+<StartSpin>c__AnonStorey3+<StartSpin>c__AnonStorey4.<>m__A () [0x00000] in <filename unknown>:0 
+  at DG.Tweening.Tween.OnTweenCallback (DG.Tweening.TweenCallback callback) [0x00000] in <filename unknown>:0 
+
+
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+the singleton AssetLoadMgr will be destroyed
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+the singleton UIMgr will be destroyed
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+the singleton AudioMgr will be destroyed
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+the singleton ApplicationMgr will be destroyed
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+

@@ -94,12 +94,14 @@
     <Compile Include="Assets\Scripts\Client\Audio\AudioMgr.cs" />
     <Compile Include="Assets\Scripts\Client\DAL\PayLineDAL.cs" />
     <Compile Include="Assets\Scripts\Client\DAL\SymbolDAL.cs" />
+    <Compile Include="Assets\Scripts\Client\DAL\TestDataDAL.cs" />
     <Compile Include="Assets\Scripts\Client\Effect\EffectBase.cs" />
     <Compile Include="Assets\Scripts\Client\Effect\EffectFade.cs" />
     <Compile Include="Assets\Scripts\Client\Effect\EffectMgr.cs" />
     <Compile Include="Assets\Scripts\Client\LoginMgr.cs" />
     <Compile Include="Assets\Scripts\Client\Model\PayLineData.cs" />
     <Compile Include="Assets\Scripts\Client\Model\SymbolData.cs" />
+    <Compile Include="Assets\Scripts\Client\Model\TestData.cs" />
     <Compile Include="Assets\Scripts\Client\PlayMode.cs" />
     <Compile Include="Assets\Scripts\Client\PlayModeMgr.cs" />
     <Compile Include="Assets\Scripts\Client\StateMgr.cs" />
