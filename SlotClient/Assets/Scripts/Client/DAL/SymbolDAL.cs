@@ -26,7 +26,8 @@ public class SymbolDAL
 				symbol.name = ele.Element("name").Value;
 				symbol.symbolType = EnumUtils.Parse<ESymbolType>(ele.Element("symbolType").Value);
 				symbol.payType = EnumUtils.Parse<EPayType>(ele.Element("payType").Value);
-				listSymbol.Add(symbol);
+				symbol.description = ele.Element("description").Value;
+                listSymbol.Add(symbol);
 				foreach (XElement payFold in ele.Element("payFold").Elements())
 				{
 					symbol.listPayFold.Add((int)payFold);

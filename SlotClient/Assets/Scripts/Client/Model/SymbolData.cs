@@ -32,5 +32,6 @@ public class SymbolData
 	public string name;
     public ESymbolType symbolType;
 	public EPayType payType;
-	public List<int> listPayFold = new List<int>();
+    public string description;//说明
+    public List<int> listPayFold = new List<int>();
 }
