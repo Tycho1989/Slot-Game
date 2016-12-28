@@ -73,11 +73,11 @@
     <Reference Include="DOTween50">
       <HintPath>Assets\Demigiant\DOTween\DOTween50.dll</HintPath>
     </Reference>
-    <Reference Include="Vectrosity">
-      <HintPath>Assets\Plugins\Vectrosity\Vectrosity.dll</HintPath>
-    </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>Assets\JsonDotNet\Assemblies\Standalone\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Vectrosity">
+      <HintPath>Assets\Plugins\Vectrosity\Vectrosity.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -107,9 +107,13 @@
     <Compile Include="Assets\Scripts\Client\UI\MainMenu\MainMenuController.cs" />
     <Compile Include="Assets\Scripts\Client\UI\MainMenu\MainMenuModel.cs" />
     <Compile Include="Assets\Scripts\Client\UI\MainMenu\MainMenuViewPresenters.cs" />
+    <Compile Include="Assets\Scripts\Client\UI\PayLine\PayLine.cs" />
     <Compile Include="Assets\Scripts\Client\UI\PayLine\PayLineController.cs" />
     <Compile Include="Assets\Scripts\Client\UI\PayLine\PayLineModel.cs" />
     <Compile Include="Assets\Scripts\Client\UI\PayLine\PayLineViewPresenters.cs" />
+    <Compile Include="Assets\Scripts\Client\UI\PayTable\PayTableController.cs" />
+    <Compile Include="Assets\Scripts\Client\UI\PayTable\PayTableModel.cs" />
+    <Compile Include="Assets\Scripts\Client\UI\PayTable\PayTableViewPresenters.cs" />
     <Compile Include="Assets\Scripts\Client\UI\Symbol\Reel.cs" />
     <Compile Include="Assets\Scripts\Client\UI\Symbol\SymbolController.cs" />
     <Compile Include="Assets\Scripts\Client\UI\Symbol\SymbolInstance.cs" />
@@ -118,16 +122,17 @@
     <Compile Include="Assets\Scripts\Client\UI\Template\TemplateController.cs" />
     <Compile Include="Assets\Scripts\Client\UI\Template\TemplateModel.cs" />
     <Compile Include="Assets\Scripts\Client\UI\Template\TemplateViewPresenters.cs" />
-    <Compile Include="Assets\Scripts\Foundation\Controller.cs" />
     <Compile Include="Assets\Scripts\Foundation\Event\InputEventDef.cs" />
     <Compile Include="Assets\Scripts\Foundation\Event\LayerID.cs" />
     <Compile Include="Assets\Scripts\Foundation\Event\UIEventListen.cs" />
-    <Compile Include="Assets\Scripts\Foundation\Model.cs" />
     <Compile Include="Assets\Scripts\Foundation\Resource\AssetLoadMgr.cs" />
     <Compile Include="Assets\Scripts\Foundation\Singleton.cs" />
-    <Compile Include="Assets\Scripts\Foundation\SingletonTemp.cs" />
     <Compile Include="Assets\Scripts\Foundation\SingletonWithComponent.cs" />
-    <Compile Include="Assets\Scripts\Foundation\SingletonWithComponentTemp.cs" />
+    <Compile Include="Assets\Scripts\Foundation\Template\MVC\Controller.cs" />
+    <Compile Include="Assets\Scripts\Foundation\Template\MVC\Model.cs" />
+    <Compile Include="Assets\Scripts\Foundation\Template\MVC\ViewPresenters.cs" />
+    <Compile Include="Assets\Scripts\Foundation\Template\Singleton\SingletonTemp.cs" />
+    <Compile Include="Assets\Scripts\Foundation\Template\Singleton\SingletonWithComponentTemp.cs" />
     <Compile Include="Assets\Scripts\Foundation\UI\ModelMgr.cs" />
     <Compile Include="Assets\Scripts\Foundation\UI\UIComponentExt.cs" />
     <Compile Include="Assets\Scripts\Foundation\UI\UIMgr.cs" />
@@ -138,7 +143,6 @@
     <Compile Include="Assets\Scripts\Foundation\Utils\FileUtils.cs" />
     <Compile Include="Assets\Scripts\Foundation\Utils\Sequence.cs" />
     <Compile Include="Assets\Scripts\Foundation\Utils\StringUtils.cs" />
-    <Compile Include="Assets\Scripts\Foundation\ViewPresenters.cs" />
     <Compile Include="Assets\Test\Test.cs" />
     <Compile Include="Assets\Test\Test1.cs" />
     <Compile Include="Assets\Test\Test_SingletonWithComponent.cs" />
