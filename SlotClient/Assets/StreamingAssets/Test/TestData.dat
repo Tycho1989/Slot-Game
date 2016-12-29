@@ -7,7 +7,7 @@
 -->
 <Setting>
   <Item0>
-	<row1>K,BAR,K,A,A</row1>
+	<row1>BAR,BAR,BAR,A,A</row1>
 	<row2>A,A,A,BAR,BAR</row2>
 	<row3>K,BAR,K,A,A</row3>
   </Item0>

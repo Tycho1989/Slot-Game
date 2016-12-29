@@ -10,19 +10,16 @@
 * 版 本 号：1.0
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
 using System.ComponentModel;
-using DG.Tweening;
 
 /// <summary>
 /// 应用模式
 /// </summary>
 public enum ApplicationMode
 {
-	//内测
-	[Description("Internal")]
+    //开发版，面向内部人员，带有调试信息；测试版，提供测试指令，面向测试人员；正式版，面向终端用户，去掉一切调试、测试信息。
+    //内测
+    [Description("Internal")]
 	Internal = 0,
 
 	//公测
