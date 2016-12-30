@@ -33,6 +33,8 @@ public enum ApplicationMode
 /// </summary>
 public class ApplicationMgr : SingletonWithComponent<ApplicationMgr>
 {
+    //版本号
+    public static string CURRENT_VERSION_NUMBER = string.Format("0.0.1.0");
     /// <summary>
     /// 版本模式
     /// </summary>
