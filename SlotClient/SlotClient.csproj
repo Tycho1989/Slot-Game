@@ -89,15 +89,17 @@
   <ItemGroup>
     <Compile Include="Assets\Demigiant\DOTween\Examples\Basics.cs" />
     <Compile Include="Assets\Demigiant\DOTween\Examples\Sequences.cs" />
+    <Compile Include="Assets\Scripts\Client\Action\ActionBase.cs" />
+    <Compile Include="Assets\Scripts\Client\Action\ActionFade.cs" />
+    <Compile Include="Assets\Scripts\Client\Action\ActionRotateSymbol.cs" />
+    <Compile Include="Assets\Scripts\Client\Action\EffectMgr.cs" />
+    <Compile Include="Assets\Scripts\Client\Action\ParamBase.cs" />
     <Compile Include="Assets\Scripts\Client\AppUtility.cs" />
     <Compile Include="Assets\Scripts\Client\ApplicationMgr.cs" />
     <Compile Include="Assets\Scripts\Client\Audio\AudioMgr.cs" />
     <Compile Include="Assets\Scripts\Client\DAL\PayLineDAL.cs" />
     <Compile Include="Assets\Scripts\Client\DAL\SymbolDAL.cs" />
     <Compile Include="Assets\Scripts\Client\DAL\TestDataDAL.cs" />
-    <Compile Include="Assets\Scripts\Client\Effect\EffectBase.cs" />
-    <Compile Include="Assets\Scripts\Client\Effect\EffectFade.cs" />
-    <Compile Include="Assets\Scripts\Client\Effect\EffectMgr.cs" />
     <Compile Include="Assets\Scripts\Client\LoginMgr.cs" />
     <Compile Include="Assets\Scripts\Client\Model\PayLineData.cs" />
     <Compile Include="Assets\Scripts\Client\Model\SymbolData.cs" />
@@ -127,6 +129,9 @@
     <Compile Include="Assets\Scripts\Foundation\Event\InputEventDef.cs" />
     <Compile Include="Assets\Scripts\Foundation\Event\LayerID.cs" />
     <Compile Include="Assets\Scripts\Foundation\Event\UIEventListen.cs" />
+    <Compile Include="Assets\Scripts\Foundation\List\IListDS.cs" />
+    <Compile Include="Assets\Scripts\Foundation\List\LinkList.cs" />
+    <Compile Include="Assets\Scripts\Foundation\List\Node.cs" />
     <Compile Include="Assets\Scripts\Foundation\Resource\AssetLoadMgr.cs" />
     <Compile Include="Assets\Scripts\Foundation\Singleton.cs" />
     <Compile Include="Assets\Scripts\Foundation\SingletonWithComponent.cs" />
