@@ -22,26 +22,29 @@ using DG.Tweening;
 public class ActionRotateSymbol : ActionBase
 {
     public Param param;
+    public Transform transform;
     public class Param : ParamBase
     {
-        public Transform transform;
     }
 
     public ActionRotateSymbol(Transform trans)
     {
-        this.param.transform = trans;
+        this.transform = trans;
+        this.AddListener(EActionState.Finish, Finish);
     }
 
     public override void Invoke()
     {
-        Tweener RotateDotween = this.param.transform.DORotate(new Vector3(0f, 180f, 0), this.param.duration, RotateMode.Fast)
+        Tweener RotateDotween = this.transform.DORotate(new Vector3(0f, 180f, 0), this.param.duration, RotateMode.Fast)
             .SetLoops(this.param.loops, this.param.loopType);
         RotateDotween.OnComplete(new TweenCallback(() =>
         {
-            this.param.transform.localRotation = Quaternion.Euler(Vector3.zero);
+            this.transform.localRotation = Quaternion.Euler(Vector3.zero);
             PayLineController payLineController = UIMgr.Instance.GetView(EViewID.PayLine) as PayLineController;
 
-            payLineController.ClearPayLine(UIEventListen.Get(this.param.transform).intParm);
+            payLineController.ClearPayLine(UIEventListen.Get(this.transform).intParm);
+
+            this.Enter(EActionState.Finish);
         }));
     }
 
@@ -58,6 +61,12 @@ public class ActionRotateSymbol : ActionBase
     }
 
     public void RotateAction(float playEffectTime)
+    {
+
+    }
+
+    //完成当前正在执行的行为
+    public void Finish()
     {
 
     }

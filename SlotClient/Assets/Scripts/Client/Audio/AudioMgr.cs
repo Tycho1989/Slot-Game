@@ -94,7 +94,7 @@ public class AudioMgr : SingletonWithComponent<AudioMgr>
         Pay.name = "Pay";
         dicAudioClip.Add(Pay.name, new AudioData(Pay, AudioType.SFX));
 
-        var ReelStop = AssetLoadMgr.Instance.LoadNativeAsset<AudioClip>(string.Format("{0}/{1}", StrDef.PATH_AUDIOSFX,"Reel Stop (332629__treasuresounds__item-pickup)"));
+        var ReelStop = AssetLoadMgr.Instance.LoadNativeAsset<AudioClip>(string.Format("{0}/{1}", StrDef.PATH_AUDIOSFX, "Reel Stop (332629__treasuresounds__item-pickup)"));
         ReelStop.name = "ReelStop";
         dicAudioClip.Add(ReelStop.name, new AudioData(ReelStop, AudioType.SFX));
 

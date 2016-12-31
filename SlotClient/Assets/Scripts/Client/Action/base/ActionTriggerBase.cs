@@ -1,5 +1,5 @@
 ﻿/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-* 文 件 名：ActionBase.cs
+* 文 件 名：ActionTriggerBase.cs
 * 版权所有：	
 * 文件编号：
 * 创 建 人：Tycho
@@ -10,24 +10,15 @@
 * 版 本 号：1.0
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
+
+using UnityEngine;
+using System.Collections;
+
 /// <summary>
-/// 文件名:行为基类
+/// 文件名:行为触发器基类
 /// 说明:
 /// </summary>
-public abstract class ActionBase
+public class ActionTriggerBase
 {
 
-    public abstract void Invoke();
-
-    //中断当前正在执行的行为
-    public virtual void Stop()
-    {
-
-    }
-
-    //回滚当前行为所执行的操作
-    public virtual void Revert()
-    {
-
-    }
 }

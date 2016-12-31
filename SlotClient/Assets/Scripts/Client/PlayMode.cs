@@ -50,7 +50,7 @@ public class PlayMode
     public float autoStopTime;
     //点击"Spin"按钮到卷轴开始旋转的延迟时间
     public float spinStartDelay;
-    //点击"Stop"按钮或者自动停止到卷轴停止旋转的延迟时间
+    //点击"Finish"按钮或者自动停止到卷轴停止旋转的延迟时间
     public float spinStopDelay;
 
     //卷轴旋转的最大速度

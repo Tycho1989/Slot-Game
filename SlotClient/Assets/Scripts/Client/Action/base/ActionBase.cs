@@ -1,103 +1,95 @@
 ﻿/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-* 文 件 名：StateMgr.cs
+* 文 件 名：ActionBase.cs
 * 版权所有：	
 * 文件编号：
 * 创 建 人：Tycho
-* 创建日期：2016-11-1
+* 创建日期：2016-12-30
 * 修 改 人：
 * 修改日期：
 * 描	述：业务逻辑类
 * 版 本 号：1.0
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-
 using System.Collections.Generic;
 using System.ComponentModel;
 using UnityEngine;
 
 /// <summary>
-/// 应用状态
+/// 文件名:行为状态划分
+/// 说明:
 /// </summary>
-public enum EState
+public enum EActionState
 {
     [Description("准备")]
     NotStarted,
     [Description("准备完成")]
     Idle,
-    [Description("旋转开始")]
-    SpinStarting,
-    [Description("旋转进行")]
-    Spinning,
-    [Description("旋转结束")]
-    SpinStopping,
-    [Description("统计")]
-    Result,
+    [Description("开始")]
+    Start,
+    [Description("进行")]
+    Invoking,
+    [Description("完成")]
+    Finish,
+    [Description("中断")]
+    Break,
 }
-
 /// <summary>
-/// 文件名:线程安全单例模板
-/// 说明：
+/// 文件名:行为基类
+/// 说明:
 /// </summary>
-public class StateMgr : Singleton<StateMgr>
+public abstract class ActionBase
 {
     /// <summary>
     /// 当前状态
     /// </summary>
-    private EState curState;
-    public EState CurState
+    private EActionState curState;
+    public EActionState CurState
     {
         get { return curState; }
         private set { curState = value; }
-    }
+    }    
 
-    //应用初始化标志
+    //准备完成标志
     private bool isInitialized = false;
 
     private DelegateVoid EnterNotStarted;
     private DelegateVoid EnterIdle;
-    private DelegateVoid EnterSpinStarting;
-    private DelegateVoid EnterSpinning;
-    private DelegateVoid EnterSpinStopping;
-    private DelegateVoid EnterResult;
+    private DelegateVoid EnterStart;
+    private DelegateVoid EnterInvoking;
+    private DelegateVoid EnterFinish;
+    private DelegateVoid EnterBreak;
 
-    private Dictionary<EState, DelegateVoid> dicEvent = new Dictionary<EState,DelegateVoid>();
-    /// <summary>
-    /// 初始化
-    /// </summary>
-    protected override void Init()
+    private Dictionary<EActionState, DelegateVoid> dicEvent = new Dictionary<EActionState, DelegateVoid>();
+    public ActionBase()
     {
-        CurState = EState.NotStarted;
+        CurState = EActionState.NotStarted;
         this.AddEvent();
     }
 
     public void AddEvent()
     {
-        this.AddEvent(EState.NotStarted, EnterNotStarted);
-        this.AddEvent(EState.Idle, EnterIdle);
-        this.AddEvent(EState.SpinStarting, EnterSpinStarting);
-        this.AddEvent(EState.Spinning, EnterSpinning);
-        this.AddEvent(EState.SpinStopping, EnterSpinStopping);
-        this.AddEvent(EState.Result, EnterResult);
+        this.AddEvent(EActionState.NotStarted, EnterNotStarted);
+        this.AddEvent(EActionState.Idle, EnterIdle);
+        this.AddEvent(EActionState.Start, EnterStart);
+        this.AddEvent(EActionState.Invoking, EnterInvoking);
+        this.AddEvent(EActionState.Finish, EnterFinish);
+        this.AddEvent(EActionState.Break, EnterBreak);
     }
+    public abstract void Invoke();
 
-
-    /// <summary>
-    /// 清理（多次）
-    /// </summary>
-    protected override void Clear()
+    //中断当前正在执行的行为
+    public virtual void Stop()
     {
 
     }
 
-    /// <summary>
-    /// 结束（一次）
-    /// </summary>
-    protected override void Finish()
+    //回滚当前行为所执行的操作
+    public virtual void Revert()
     {
 
     }
 
-    private void AddEvent(EState state, DelegateVoid eventHandler)
+    private void AddEvent(EActionState state, DelegateVoid eventHandler)
     {
 
         if (dicEvent.ContainsKey(state))
@@ -111,7 +103,7 @@ public class StateMgr : Singleton<StateMgr>
         }
     }
 
-    public void AddListener(EState state, DelegateVoid listener)
+    public void AddListener(EActionState state, DelegateVoid listener)
     {
         if (!dicEvent.ContainsKey(state))
         {
@@ -119,10 +111,10 @@ public class StateMgr : Singleton<StateMgr>
             return;
         }
 
-        dicEvent[state]+= listener;
+        dicEvent[state] += listener;
     }
 
-    public void RemoveListener(EState state, DelegateVoid listener)
+    public void RemoveListener(EActionState state, DelegateVoid listener)
     {
         if (!dicEvent.ContainsKey(state))
         {
@@ -133,7 +125,7 @@ public class StateMgr : Singleton<StateMgr>
         dicEvent[state] -= listener;
     }
 
-    private void Invoke(EState state)
+    private void Invoke(EActionState state)
     {
         if (!dicEvent.ContainsKey(state))
         {
@@ -143,7 +135,7 @@ public class StateMgr : Singleton<StateMgr>
 
         DelegateVoid eventHandler;
         dicEvent.TryGetValue(state, out eventHandler);
-        if(null == eventHandler)
+        if (null == eventHandler)
         {
             Debug.Log(string.Format("The event [{0}] is null", state));
             return;
@@ -151,54 +143,52 @@ public class StateMgr : Singleton<StateMgr>
         eventHandler.Invoke();
     }
 
-
-    public void Enter(EState state)
+    public void Enter(EActionState state)
     {
-        switch(state)
+        switch (state)
         {
-            case EState.NotStarted:
+            case EActionState.NotStarted:
                 if (!isInitialized)
                 {
-                    CurState = EState.NotStarted;
+                    CurState = EActionState.NotStarted;
                     Invoke(state);
                     isInitialized = true;
                 }
                 break;
-            case EState.Idle:
+            case EActionState.Idle:
                 {
-                    CurState = EState.Idle;
+                    CurState = EActionState.Idle;
                     Invoke(state);
                 }
                 break;
-            case EState.SpinStarting:
-                if (CurState == EState.Idle)
+            case EActionState.Start:
+                if (CurState == EActionState.Idle)
                 {
-                    CurState = EState.SpinStarting;
+                    CurState = EActionState.Start;
                     Invoke(state);
                 }
                 break;
-            case EState.Spinning:
-                if (CurState == EState.SpinStarting|| CurState == EState.SpinStopping)
+            case EActionState.Invoking:
+                if (CurState == EActionState.Start || CurState == EActionState.Break)
                 {
-                    CurState = EState.Spinning;
+                    CurState = EActionState.Invoking;
                     Invoke(state);
                 }
                 break;
-            case EState.SpinStopping:
-                if (CurState == EState.Spinning)
+            case EActionState.Finish:
+                if (CurState == EActionState.Invoking)
                 {
-                    CurState = EState.SpinStopping;
+                    CurState = EActionState.Finish;
                     Invoke(state);
                 }
                 break;
-            case EState.Result:
-                if (CurState == EState.Spinning)
+            case EActionState.Break:
+                if (CurState == EActionState.Invoking)
                 {
-                    CurState = EState.Result;
+                    CurState = EActionState.Break;
                     Invoke(state);
                 }
                 break;
         }
     }
-
 }

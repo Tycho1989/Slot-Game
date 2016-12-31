@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <doc>
     <assembly>
         <name>DOTween</name>
@@ -806,21 +806,21 @@
             Allows to wrap ease method in special ways, adding extra features
             </summary>
         </member>
-        <member name="M:DG.Tweening.EaseFactory.StopMotion(System.Int32,System.Nullable{DG.Tweening.Ease})">
+        <member name="M:DG.Tweening.EaseFactory.FinishMotion(System.Int32,System.Nullable{DG.Tweening.Ease})">
             <summary>
             Converts the given ease so that it also creates a stop-motion effect, by playing the tween at the given FPS
             </summary>
             <param name="motionFps">FPS at which the tween should be played</param>
             <param name="ease">Ease type</param>
         </member>
-        <member name="M:DG.Tweening.EaseFactory.StopMotion(System.Int32,UnityEngine.AnimationCurve)">
+        <member name="M:DG.Tweening.EaseFactory.FinishMotion(System.Int32,UnityEngine.AnimationCurve)">
             <summary>
             Converts the given ease so that it also creates a stop-motion effect, by playing the tween at the given FPS
             </summary>
             <param name="motionFps">FPS at which the tween should be played</param>
             <param name="animCurve">AnimationCurve to use for the ease</param>
         </member>
-        <member name="M:DG.Tweening.EaseFactory.StopMotion(System.Int32,DG.Tweening.EaseFunction)">
+        <member name="M:DG.Tweening.EaseFactory.FinishMotion(System.Int32,DG.Tweening.EaseFunction)">
             <summary>
             Converts the given ease so that it also creates a stop-motion effect, by playing the tween at the given FPS
             </summary>

@@ -89,11 +89,12 @@
   <ItemGroup>
     <Compile Include="Assets\Demigiant\DOTween\Examples\Basics.cs" />
     <Compile Include="Assets\Demigiant\DOTween\Examples\Sequences.cs" />
-    <Compile Include="Assets\Scripts\Client\Action\ActionBase.cs" />
     <Compile Include="Assets\Scripts\Client\Action\ActionFade.cs" />
     <Compile Include="Assets\Scripts\Client\Action\ActionRotateSymbol.cs" />
-    <Compile Include="Assets\Scripts\Client\Action\EffectMgr.cs" />
-    <Compile Include="Assets\Scripts\Client\Action\ParamBase.cs" />
+    <Compile Include="Assets\Scripts\Client\Action\base\ActionBase.cs" />
+    <Compile Include="Assets\Scripts\Client\Action\base\ActionTriggerBase.cs" />
+    <Compile Include="Assets\Scripts\Client\Action\base\EffectMgr.cs" />
+    <Compile Include="Assets\Scripts\Client\Action\base\ParamBase.cs" />
     <Compile Include="Assets\Scripts\Client\AppUtility.cs" />
     <Compile Include="Assets\Scripts\Client\ApplicationMgr.cs" />
     <Compile Include="Assets\Scripts\Client\Audio\AudioMgr.cs" />
