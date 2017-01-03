@@ -53,14 +53,14 @@ public class StateMgr : Singleton<StateMgr>
     //应用初始化标志
     private bool isInitialized = false;
 
-    private DelegateVoid EnterNotStarted;
-    private DelegateVoid EnterIdle;
-    private DelegateVoid EnterSpinStarting;
-    private DelegateVoid EnterSpinning;
-    private DelegateVoid EnterSpinStopping;
-    private DelegateVoid EnterResult;
+    private Callback EnterNotStarted;
+    private Callback EnterIdle;
+    private Callback EnterSpinStarting;
+    private Callback EnterSpinning;
+    private Callback EnterSpinStopping;
+    private Callback EnterResult;
 
-    private Dictionary<EState, DelegateVoid> dicEvent = new Dictionary<EState,DelegateVoid>();
+    private Dictionary<EState, Callback> dicEvent = new Dictionary<EState,Callback>();
     /// <summary>
     /// 初始化
     /// </summary>
@@ -97,7 +97,7 @@ public class StateMgr : Singleton<StateMgr>
 
     }
 
-    private void AddEvent(EState state, DelegateVoid eventHandler)
+    private void AddEvent(EState state, Callback eventHandler)
     {
 
         if (dicEvent.ContainsKey(state))
@@ -111,7 +111,7 @@ public class StateMgr : Singleton<StateMgr>
         }
     }
 
-    public void AddListener(EState state, DelegateVoid listener)
+    public void AddListener(EState state, Callback listener)
     {
         if (!dicEvent.ContainsKey(state))
         {
@@ -122,7 +122,7 @@ public class StateMgr : Singleton<StateMgr>
         dicEvent[state]+= listener;
     }
 
-    public void RemoveListener(EState state, DelegateVoid listener)
+    public void RemoveListener(EState state, Callback listener)
     {
         if (!dicEvent.ContainsKey(state))
         {
@@ -141,7 +141,7 @@ public class StateMgr : Singleton<StateMgr>
             return;
         }
 
-        DelegateVoid eventHandler;
+        Callback eventHandler;
         dicEvent.TryGetValue(state, out eventHandler);
         if(null == eventHandler)
         {

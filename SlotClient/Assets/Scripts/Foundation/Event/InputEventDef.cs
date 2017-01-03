@@ -10,11 +10,7 @@
 * 版 本 号：1.0
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-public delegate void DelegateVoid();
-public delegate void DelegateInt(int value);
-public delegate void DelegateString(string value);
-public delegate void DelegateObject(System.Object obj);
-
-
-
-
+public delegate void Callback();
+public delegate void Callback<T0>(T0 arg0);
+public delegate void Callback<T0,T1>(T0 arg0,T1 arg1);
+public delegate void Callback<T0,T1,T2>(T0 arg0,T1 arg1,T2 arg2);

@@ -14,6 +14,7 @@
 using UnityEngine;
 using System.Collections;
 using DG.Tweening;
+using UnityEngine.Events;
 
 /// <summary>
 /// 文件名:符号旋转效果
@@ -33,7 +34,7 @@ public class ActionRotateSymbol : ActionBase
         this.AddListener(EActionState.Finish, Finish);
     }
 
-    public override void Invoke()
+    protected override void Invoke()
     {
         Tweener RotateDotween = this.transform.DORotate(new Vector3(0f, 180f, 0), this.param.duration, RotateMode.Fast)
             .SetLoops(this.param.loops, this.param.loopType);
@@ -42,7 +43,7 @@ public class ActionRotateSymbol : ActionBase
             this.transform.localRotation = Quaternion.Euler(Vector3.zero);
             PayLineController payLineController = UIMgr.Instance.GetView(EViewID.PayLine) as PayLineController;
 
-            payLineController.ClearPayLine(UIEventListen.Get(this.transform).intParm);
+            payLineController.ClearPayLine(UIEventListen.Get(this.transform).parm0);
 
             this.Enter(EActionState.Finish);
         }));

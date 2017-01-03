@@ -12,7 +12,9 @@
 
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.Networking;
 
 /// <summary>
 /// 文件名:行为状态划分
@@ -52,30 +54,13 @@ public abstract class ActionBase
     //准备完成标志
     private bool isInitialized = false;
 
-    private DelegateVoid EnterNotStarted;
-    private DelegateVoid EnterIdle;
-    private DelegateVoid EnterStart;
-    private DelegateVoid EnterInvoking;
-    private DelegateVoid EnterFinish;
-    private DelegateVoid EnterBreak;
-
-    private Dictionary<EActionState, DelegateVoid> dicEvent = new Dictionary<EActionState, DelegateVoid>();
+    private Dictionary<EActionState, List<System.Delegate>> dicEvent = new Dictionary<EActionState, List<System.Delegate>>();
     public ActionBase()
     {
         CurState = EActionState.NotStarted;
-        this.AddEvent();
     }
 
-    public void AddEvent()
-    {
-        this.AddEvent(EActionState.NotStarted, EnterNotStarted);
-        this.AddEvent(EActionState.Idle, EnterIdle);
-        this.AddEvent(EActionState.Start, EnterStart);
-        this.AddEvent(EActionState.Invoking, EnterInvoking);
-        this.AddEvent(EActionState.Finish, EnterFinish);
-        this.AddEvent(EActionState.Break, EnterBreak);
-    }
-    public abstract void Invoke();
+    protected abstract void Invoke();
 
     //中断当前正在执行的行为
     public virtual void Stop()
@@ -89,41 +74,180 @@ public abstract class ActionBase
 
     }
 
-    private void AddEvent(EActionState state, DelegateVoid eventHandler)
-    {
+    #region 添加回调
 
-        if (dicEvent.ContainsKey(state))
+    public void AddEvent(EActionState state, System.Delegate listener)
+    {
+        List<System.Delegate> listDlg = new List<System.Delegate>();
+        if (!dicEvent.ContainsKey(state) || null == dicEvent[state] || dicEvent[state].Count == 0)
         {
-            Debug.Log(string.Format("The event [{0}] is  duplicate", state));
+            listDlg.Add(listener);
+            dicEvent[state] = listDlg;
             return;
         }
-        else
-        {
-            dicEvent.Add(state, eventHandler);
-        }
+
+        listDlg = dicEvent[state];
+
+        System.Delegate dlg = listDlg.Where(m => m.Equals(listener)).FirstOrDefault();
+        System.Delegate.Combine(dlg, listener);
+    }
+    public void AddListener(EActionState state, Callback listener)
+    {
+        this.AddEvent(state,listener);
     }
 
-    public void AddListener(EActionState state, DelegateVoid listener)
+    public void AddListener<T>(EActionState state, Callback<T> listener)
+    {
+        this.AddEvent(state, listener);
+    }
+
+    public void AddListener<T0,T1>(EActionState state, Callback<T0, T1> listener)
+    {
+        this.AddEvent(state, listener);
+    }
+
+    public void AddListener<T0,T1,T2>(EActionState state, Callback<T0, T1, T2> listener)
+    {
+        this.AddEvent(state, listener);
+    }
+    #endregion
+
+    #region  去除回调
+    public void RemoveAllListener(EActionState state)
     {
         if (!dicEvent.ContainsKey(state))
         {
-            Debug.Log(string.Format("The event [{0}] is not exist", state));
+            Debug.Log(string.Format("The delegate [{0}] is not exist", state));
             return;
         }
 
-        dicEvent[state] += listener;
-    }
+        List<System.Delegate> listDlg = dicEvent[state];
+        if (null == listDlg || listDlg.Count == 0)
+        {
+            Debug.Log(string.Format("The delegate [{0}] is null", state));
+            return;
+        }
 
-    public void RemoveListener(EActionState state, DelegateVoid listener)
+        for (int i = 0; i < listDlg.Count; i++)
+        {
+            if (null != listDlg[i])
+            {
+                System.Delegate.RemoveAll(listDlg[i], listDlg[i]);
+            }
+        }
+    }
+    public void RemoveListener(EActionState state, Callback listener)
     {
         if (!dicEvent.ContainsKey(state))
         {
-            Debug.Log(string.Format("The event [{0}] is not exist", state));
+            Debug.Log(string.Format("The delegate [{0}] is not exist", state));
             return;
         }
 
-        dicEvent[state] -= listener;
+        List<System.Delegate> listDlg = dicEvent[state];
+        if (null == listDlg || listDlg.Count == 0)
+        {
+            Debug.Log(string.Format("The delegate [{0}] is null", state));
+            return;
+        }
+
+        for (int i = 0; i < listDlg.Count; i++)
+        {
+            if (listDlg[i].Equals(listener))
+            {
+                if (null != listDlg[i])
+                {
+                    Callback callback = listDlg[i] as Callback;
+                    callback -= listener;
+                }
+            }
+        }
     }
+
+    public void RemoveListener<T>(EActionState state, Callback<T> listener)
+    {
+        if (!dicEvent.ContainsKey(state))
+        {
+            Debug.Log(string.Format("The delegate [{0}] is not exist", state));
+            return;
+        }
+
+        List<System.Delegate> listDlg = dicEvent[state];
+        if (null == listDlg || listDlg.Count == 0)
+        {
+            Debug.Log(string.Format("The delegate [{0}] is null", state));
+            return;
+        }
+
+        for (int i = 0; i < listDlg.Count; i++)
+        {
+            if (listDlg[i].Equals(listener))
+            {
+                if (null != listDlg[i])
+                {
+                    Callback<T> callback = listDlg[i] as Callback<T>;
+                    callback -= listener;
+                }
+            }
+        }
+    }
+
+    public void RemoveListener<T0, T1>(EActionState state, Callback<T0, T1> listener)
+    {
+        if (!dicEvent.ContainsKey(state))
+        {
+            Debug.Log(string.Format("The delegate [{0}] is not exist", state));
+            return;
+        }
+
+        List<System.Delegate> listDlg = dicEvent[state];
+        if (null == listDlg || listDlg.Count == 0)
+        {
+            Debug.Log(string.Format("The delegate [{0}] is null", state));
+            return;
+        }
+
+        for (int i = 0; i < listDlg.Count; i++)
+        {
+            if (listDlg[i].Equals(listener))
+            {
+                if (null != listDlg[i])
+                {
+                    Callback<T0,T1> callback = listDlg[i] as Callback<T0,T1>;
+                    callback -= listener;
+                }
+            }
+        }
+    }
+
+    public void RemoveListener<T0, T1, T2>(EActionState state, Callback<T0, T1, T2> listener)
+    {
+        if (!dicEvent.ContainsKey(state))
+        {
+            Debug.Log(string.Format("The delegate [{0}] is not exist", state));
+            return;
+        }
+
+        List<System.Delegate> listDlg = dicEvent[state];
+        if (null == listDlg || listDlg.Count == 0)
+        {
+            Debug.Log(string.Format("The delegate [{0}] is null", state));
+            return;
+        }
+
+        for (int i = 0; i < listDlg.Count; i++)
+        {
+            if (listDlg[i].Equals(listener))
+            {
+                if (null != listDlg[i])
+                {
+                    Callback<T0, T1, T2> callback = listDlg[i] as Callback<T0, T1, T2>;
+                    callback -= listener;
+                }
+            }
+        }
+    }
+    #endregion
 
     private void Invoke(EActionState state)
     {
@@ -133,14 +257,20 @@ public abstract class ActionBase
             return;
         }
 
-        DelegateVoid eventHandler;
-        dicEvent.TryGetValue(state, out eventHandler);
-        if (null == eventHandler)
+        List<System.Delegate> listdDlg = dicEvent[state];
+        if (null == listdDlg)
         {
-            Debug.Log(string.Format("The event [{0}] is null", state));
+            Debug.Log(string.Format("The delegate [{0}] is null", state));
             return;
         }
-        eventHandler.Invoke();
+
+        foreach (System.Delegate dlg in listdDlg)
+        {
+            if (null != dlg)
+            {
+                dlg.DynamicInvoke();
+            }
+        }
     }
 
     public void Enter(EActionState state)
@@ -162,28 +292,28 @@ public abstract class ActionBase
                 }
                 break;
             case EActionState.Start:
-                if (CurState == EActionState.Idle)
+                if(true)// (CurState == EActionState.Idle)
                 {
                     CurState = EActionState.Start;
                     Invoke(state);
                 }
                 break;
             case EActionState.Invoking:
-                if (CurState == EActionState.Start || CurState == EActionState.Break)
+                if(true)// (CurState == EActionState.Start || CurState == EActionState.Break)
                 {
                     CurState = EActionState.Invoking;
                     Invoke(state);
                 }
                 break;
             case EActionState.Finish:
-                if (CurState == EActionState.Invoking)
+                if(true)// (CurState == EActionState.Invoking)
                 {
                     CurState = EActionState.Finish;
                     Invoke(state);
                 }
                 break;
             case EActionState.Break:
-                if (CurState == EActionState.Invoking)
+                if(true)// (CurState == EActionState.Invoking)
                 {
                     CurState = EActionState.Break;
                     Invoke(state);

@@ -67,13 +67,13 @@ public abstract class Controller
 
 	protected List<Controller> lstChildDialog = new List<Controller>();
 
-	public DelegateVoid createViewFinishListener = null;
+	public Callback createViewFinishListener = null;
 
 	//窗体点击回调事件
 	public DialogClickEvent dlgClickEvent;
-	protected DelegateVoid dlgOpenListener = null;
-	protected DelegateVoid dlgHideListener = null;
-	protected DelegateVoid dlgCloseListener = null;
+	protected Callback dlgOpenListener = null;
+	protected Callback dlgHideListener = null;
+	protected Callback dlgCloseListener = null;
 
 
 	/// <summary>

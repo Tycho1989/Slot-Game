@@ -17,7 +17,7 @@ public class ActionFade : ActionBase
         this.param.transform = trans;
     }
 
-    public override void Invoke()
+    protected override void Invoke()
     {
 
     }
