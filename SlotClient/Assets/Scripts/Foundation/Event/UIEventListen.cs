@@ -62,10 +62,10 @@ public enum EUIEventType
 public class UIEventListen : MonoBehaviour, IEventSystemHandler, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerUpHandler, IPointerClickHandler,  IDropHandler, IScrollHandler, IUpdateSelectedHandler, ISelectHandler, IDeselectHandler, IMoveHandler, ISubmitHandler, ICancelHandler
 {
     #region  带参 System.Object
-    public Object parm0;
-    public Object parm1;
-    public Object parm2;
-    public Object parm3;
+    public System.Object parm0;
+    public System.Object parm1;
+    public System.Object parm2;
+    public System.Object parm3;
 
     private Dictionary<EUIEventType, List<System.Delegate>> dicEvent = new Dictionary<EUIEventType, List<System.Delegate>>();
 

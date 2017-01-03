@@ -15,6 +15,7 @@ using UnityEngine;
 using System.Collections;
 using DG.Tweening;
 using UnityEngine.Events;
+using System;
 
 /// <summary>
 /// 文件名:符号旋转效果
@@ -43,7 +44,8 @@ public class ActionRotateSymbol : ActionBase
             this.transform.localRotation = Quaternion.Euler(Vector3.zero);
             PayLineController payLineController = UIMgr.Instance.GetView(EViewID.PayLine) as PayLineController;
 
-            payLineController.ClearPayLine(UIEventListen.Get(this.transform).parm0);
+            int lineIndex = Convert.ToInt32(UIEventListen.Get(this.transform).parm0);
+            payLineController.ClearPayLine(lineIndex);
 
             this.Enter(EActionState.Finish);
         }));
